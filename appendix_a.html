@@ -1,0 +1,122 @@
+---
+layout: default
+style: >-
+  .table thead th small { font-weight: normal; }
+  .table tbody th { font-weight: normal; }
+  .table td, .table th { width: 20%; }
+  .table tbody td small { font-size: 8px; line-height: 1.5; display: inline-block; }
+  .table tbody td img {
+    border-radius: 0.5em;
+    min-width: 96px;
+  }
+  .table td.column-0 {
+    background-color: rgba(127,127,127,0.5);
+  }
+---
+
+
+<table class="mt-5 table">
+  <thead>
+    <tr>
+      <th>Original Image<br><small>Source Citation<br>(will not be used in test)</small></th>
+      <th>Low Noise, No Oddity<br><small>Ai Prompt</small></th>
+      <th>High Noise, No Oddity<br><small>Ai Prompt</small></th>
+      <th>Low Noise, Oddity Added<br><small>Ai Prompt</small></th>
+      <th>High Noise, Oddities Added<br><small>Ai Prompt</small></th>
+    </tr>
+  </thead>
+  <tbody>
+    <script>
+      (async () => {
+        const tableBody = document.currentScript.parentElement;
+        const reloadToken = Math.random().toString(36).slice(2);
+        const descriptions = await fetch("appendix_a.json?_r=" + reloadToken).then((response) => response.json());
+        let html = "";
+        const startAt = 1;
+
+        for (let row = startAt; row <= 16; row += 1) {
+          const rowId = String(row).padStart(2, "0");
+          const altText = String(descriptions[row - 1]?.[0] ?? "");
+
+          html += `<tr><th colspan="5">${altText}</th></tr>`;
+
+          html += "<tr>";
+
+          for (let col = 0; col < 5; col += 1) {
+            const extension = col === 0 ? "jpg" : "png";
+            const src = `assets/${rowId}-${col}.${extension}?_r=${reloadToken}`;
+            const description = String(descriptions[row - 1]?.[col + 1] ?? "");
+            html += `<td class="column-${col}"><img src="${src}" data-row="${row}" data-col="${col}" data-fullsize-src="${src}" data-bs-toggle="modal" data-bs-target="#imageModal" class="img-fluid" style="cursor: zoom-in;"><br><small>${description}</small></td>`;
+          }
+
+          html += "</tr>";
+        }
+
+        tableBody.innerHTML = html;
+      })();
+    </script>
+  </tbody>
+</table>
+
+<p><small><i>Note.</i> All original photographs and illustrations modified using ChatGPT image editing tools (OpenAI, 2026). <i>Accessed from 22 to 24 May 2026</i></small></p>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <img id="imageModalContent" src="" alt="" style="display: block; width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  {
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("imageModalContent");
+    let currentRow = 1;
+    let currentCol = 0;
+
+    const updateModalImage = (row, col) => {
+      const nextImage = document.querySelector(`img[data-row="${row}"][data-col="${col}"]`);
+
+      if (!nextImage) {
+        return;
+      }
+
+      currentRow = row;
+      currentCol = col;
+      modalImage.src = nextImage.dataset.fullsizeSrc;
+    };
+
+    document.addEventListener("click", (event) => {
+      const image = event.target.closest("img[data-fullsize-src]");
+
+      if (!image) {
+        return;
+      }
+
+      updateModalImage(Number(image.dataset.row), Number(image.dataset.col));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!modal.classList.contains("show")) {
+        return;
+      }
+
+      if (event.key === "ArrowUp" && currentRow > 1) {
+        updateModalImage(currentRow - 1, currentCol);
+        event.preventDefault();
+      } else if (event.key === "ArrowDown" && currentRow < 16) {
+        updateModalImage(currentRow + 1, currentCol);
+        event.preventDefault();
+      } else if (event.key === "ArrowLeft" && currentCol > 0) {
+        updateModalImage(currentRow, currentCol - 1);
+        event.preventDefault();
+      } else if (event.key === "ArrowRight" && currentCol < 4) {
+        updateModalImage(currentRow, currentCol + 1);
+        event.preventDefault();
+      }
+    });
+  }
+</script>
