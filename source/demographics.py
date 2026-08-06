@@ -24,7 +24,7 @@ SCREEN_COLUMNS = [
     ("gender", "gender"),
 ]
 
-OUTPUT_COLUMNS = ["participant_index"] + [out for _, out in SCREEN_COLUMNS]
+OUTPUT_COLUMNS = ["participant_index", "participant_id", "timezone"] + [out for _, out in SCREEN_COLUMNS]
 
 
 def session_key(row: dict) -> tuple:
@@ -58,7 +58,11 @@ def clean_file(input_path: Path, output_path: Path) -> Path:
                 flush()
                 current_key = key
                 participant_index += 1
-                record = {"participant_index": participant_index}
+                record = {
+                    "participant_index": participant_index,
+                    "participant_id": key[1],
+                    "timezone": row.get("Local Timezone", ""),
+                }
 
             if (row.get("Response Type") or "").strip() != "response":
                 continue

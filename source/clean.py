@@ -41,26 +41,27 @@ STRING_COLUMNS = {
     "propensity",
     "noisiness",
     "oddity",
+    "c_tmzone",
 }
 
 # Source column -> codified column, derived from the value's leading digit
 # (kept to 8 chars for SPSS/PROCESS field-name limits)
 CODIFIED_COLUMNS = [
     ("expectedness", "c_expect", lambda n: n),
-    ("comfortable", "c_comfrt", lambda n: n),
-    ("propensity", "c_prpnst", lambda n: n),
+    ("comfortable", "c_discom", lambda n: n),
     ("noisiness", "c_noise", lambda n: n),
     ("oddity", "c_oddity", lambda n: n),
+    ("propensity", "c_propen", lambda n: n),
 ]
 
 OUTPUT_COLUMNS = (
-    ["index", "participant_index", "age", "gender", "trial_number"]
+    ["index", "participant_index", "age", "gender", "timezone", "trial_number"]
     + RESPONSE_TAGS
     + ["propensity"]
     + [out for _, out in SPREADSHEET_COLUMNS]
 )
 OUTPUT_COLUMNS.insert(OUTPUT_COLUMNS.index("image_set") + 1, "image_set_repeat")
-OUTPUT_COLUMNS += [out for _, out, _ in CODIFIED_COLUMNS] + ["c_oddnse"]
+OUTPUT_COLUMNS += [out for _, out, _ in CODIFIED_COLUMNS] + ["c_oddnse", "c_tmzone"]
 
 
 def leading_digit(value: str):
@@ -68,11 +69,25 @@ def leading_digit(value: str):
     return int(value[0]) if value[:1].isdigit() else None
 
 
+def classify_timezone(value: str) -> str:
+    value = (value or "").strip()
+    try:
+        n = float(value)
+    except ValueError:
+        return ""
+    if n < -1:
+        return "US"
+    if n <= 3:
+        return "UK"
+    return "AU"
+
+
 def codify(record: dict) -> None:
     for src, out, rule in CODIFIED_COLUMNS:
         n = leading_digit(record.get(src, ""))
         record[out] = rule(n) if n is not None else ""
     record["c_oddnse"] = 1 if record["c_oddity"] == 1 and record["c_noise"] == 1 else 0
+    record["c_tmzone"] = classify_timezone(record.get("timezone", ""))
 
 
 def numify(record: dict) -> None:
@@ -121,6 +136,7 @@ def load_demographics(demographics_path: Path) -> dict:
             demographics[row["participant_index"]] = {
                 "age": row.get("age", ""),
                 "gender": row.get("gender", ""),
+                "timezone": row.get("timezone", ""),
             }
     return demographics
 
