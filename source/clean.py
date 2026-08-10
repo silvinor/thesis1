@@ -32,6 +32,15 @@ SPREADSHEET_COLUMNS = [
 # Tags whose Response value becomes its own output column
 RESPONSE_TAGS = ["expectedness", "comfortable"]
 
+# Participants to exclude from output, by "Participant External Session ID"
+# in the original data. Their trials are still counted toward `index` and
+# `participant_index` so the surviving rows keep the numbering they would
+# have had if these participants were merely removed after the fact (i.e.
+# the sequence skips the excluded values rather than closing the gap).
+EXCLUDED_PARTICIPANTS = [
+    "6a55f1d8045ad75a5b407efe",
+]
+
 # Columns written as quoted strings; every other column is written as a
 # number (unquoted) via QUOTE_NONNUMERIC where its value allows.
 STRING_COLUMNS = {
@@ -111,6 +120,10 @@ def session_key(row: dict) -> tuple:
     )
 
 
+def is_excluded(key: tuple) -> bool:
+    return key is not None and key[1] in EXCLUDED_PARTICIPANTS
+
+
 def read_rows(input_path: Path):
     with input_path.open(newline="", encoding="utf-8-sig") as f:
         yield from csv.DictReader(f)
@@ -160,9 +173,12 @@ def clean_file(input_path: Path, demographics_path: Path, output_path: Path) -> 
 
         def flush():
             nonlocal total
+            excluded = is_excluded(current_key)
             propensity = propensities.get(current_key, "")
             for record in trials.values():
                 total += 1
+                if excluded:
+                    continue
                 record["index"] = total
                 record["propensity"] = propensity
                 record.update(demographics.get(str(record["participant_index"]), {}))
