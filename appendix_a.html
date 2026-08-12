@@ -35,7 +35,7 @@ style: >-
         'oddity-low-n',
         'oddity-noise'
       ];
-      
+
       (async () => {
         const tableBody = document.currentScript.parentElement;
         const reloadToken = Math.random().toString(36).slice(2);
@@ -53,7 +53,7 @@ style: >-
 
           for (let col = 0; col < 5; col += 1) {
             const extension = col === 0 ? "jpg" : "png";
-            const src = `assets/${rowId}-${colIds[col]}.${extension}?_r=${reloadToken}`;
+            const src = `assets/trials/${rowId}-${colIds[col]}.${extension}?_r=${reloadToken}`;
             const description = `${descriptions[row - 1]?.[col + 1] ?? ""}`;
             html += `<td class="column-${col}"><img src="${src}" data-row="${row}" data-col="${col}" data-fullsize-src="${src}" data-bs-toggle="modal" data-bs-target="#imageModal" class="img-fluid" style="cursor: zoom-in;"><br><small>${description}</small></td>`;
           }
@@ -67,7 +67,7 @@ style: >-
   </tbody>
 </table>
 
-<p><small><i>Note.</i> All original photographs and illustrations modified using ChatGPT image editing tools (OpenAI, 2026). <i>Accessed from 22 to 24 May 2026</i></small></p>
+<p><small><i>Note.</i> All original photographs and illustrations cited in first column. Altered images all modified using <b>ChatGPT Image 2.0</b> (OpenAI, 2026). <i>Accessed from 22 to 24 May 2026</i></small></p>
 
 <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
