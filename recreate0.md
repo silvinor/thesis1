@@ -16,7 +16,7 @@
         - Was rejected due to perceived inattention in the the other trails - of which pp 74 failed 4 of the 5. *(This trial was not tested for attention as the design did not include reaction testing.)* Participants responses where judged to not be reliable by the cohort.
 
 - Two files received:
-    - [`data/data_ODDITY_exp_274266-v20_task-8m3r.original.csv`](data/data/data_ODDITY_exp_274266-v20_task-8m3r.original.csv) - contains the trial run raw output for this trial.
+    - [`data_ODDITY_exp_274266-v20_task-8m3r.original.csv`](data/data/data_ODDITY_exp_274266-v20_task-8m3r.original.csv) - contains the trial run raw output for this trial.
     - [`data_DEMOGRAPHIC_exp_274266-v20_task-fw7d.original.csv`](data/data/data_DEMOGRAPHIC_exp_274266-v20_task-fw7d.original.csv) - contains demographic data questions asked with the 6 trails cohort group trail run.
 
 ---
@@ -63,6 +63,6 @@
             data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv
         ```
 
-        This create the [data_ODDITY_exp_274266-v20_task-8m3r.clean.csv](data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv)
+        This creates the [data_ODDITY_exp_274266-v20_task-8m3r.clean.csv](data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv)
 
 - ..which can then be used to import into SPSS or Excel.
