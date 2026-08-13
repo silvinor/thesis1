@@ -1,0 +1,57 @@
+<svg viewBox="0 0 637 123" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+    <title id="ttl">Descriptive statistics table</title>
+    <desc id="dsc">APA-7 formatted table of descriptive statistics for Unexpectedness and Discomfort ratings, showing scale, M, SD, SE, and 95% CI.</desc>
+
+    <style>
+        text {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14pt;
+            fill: #000000;
+        }
+        .italic { font-style: italic; }
+        .bold { font-weight: bold; }
+        .left { text-anchor: start; }
+        .center { text-anchor: middle; }
+        line {
+            stroke: #000000;
+            stroke-linecap: butt;
+        }
+        .rule-thick { stroke-width: 1.25; }
+        .rule-thin { stroke-width: 0.75; }
+    </style>
+
+    <rect x="0" y="0" width="637" height="123" fill="#ffffff" rx="16" />
+
+    <!-- Top rule: 14pt (~18px) from top edge -->
+    <line x1="18" y1="18" x2="618" y2="18" class="rule-thick" />
+
+    <!-- Column headers -->
+    <text x="18" y="38" class="left bold">Measure</text>
+    <text x="208" y="38" class="center bold">Scale</text>
+    <text x="283" y="38" class="center italic bold">M</text>
+    <text x="353" y="38" class="center italic bold">SD</text>
+    <text x="423" y="38" class="center italic bold">SE</text>
+    <text x="538" y="38" class="center bold">95% CI</text>
+
+    <!-- Header rule -->
+    <line x1="18" y1="48" x2="618" y2="48" class="rule-thin" />
+
+    <!-- Row 1: Unexpectedness -->
+    <text x="18" y="67" class="left">Unexpectedness</text>
+    <text x="208" y="67" class="center">1&#8211;5</text>
+    <text x="283" y="67" class="center">2.87</text>
+    <text x="353" y="67" class="center">1.69</text>
+    <text x="423" y="67" class="center">0.03</text>
+    <text x="538" y="67" class="center">[2.81, 2.94]</text>
+
+    <!-- Row 2: Discomfort -->
+    <text x="18" y="95" class="left">Discomfort</text>
+    <text x="208" y="95" class="center">1&#8211;4</text>
+    <text x="283" y="95" class="center">1.95</text>
+    <text x="353" y="95" class="center">1.08</text>
+    <text x="423" y="95" class="center">0.02</text>
+    <text x="538" y="95" class="center">[1.91, 2.00]</text>
+
+    <!-- Bottom rule: 14pt (~18px) from bottom edge -->
+    <line x1="18" y1="104" x2="618" y2="104" class="rule-thick" />
+</svg>

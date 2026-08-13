@@ -1,0 +1,69 @@
+<svg viewBox="0 0 806 206" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+    <title id="ttl">Mediation paths</title>
+    <desc id="dsc">APA-7 formatted table of mediation path effects (a, b, c, c-prime, ab) with SE and 95% CI for the oddity to discomfort model via unexpectedness.</desc>
+
+    <style>
+        text {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14pt;
+            fill: #000000;
+        }
+        .italic { font-style: italic; }
+        .bold { font-weight: bold; }
+        .left { text-anchor: start; }
+        .center { text-anchor: middle; }
+        line {
+            stroke: #000000;
+            stroke-linecap: butt;
+        }
+        .rule-thick { stroke-width: 1.25; }
+        .rule-thin { stroke-width: 0.75; }
+    </style>
+
+    <rect x="0" y="0" width="806" height="206" fill="#ffffff" rx="16" />
+
+    <!-- Top rule -->
+    <line x1="18" y1="18" x2="788" y2="18" class="rule-thick" />
+
+    <!-- Column headers -->
+    <text x="18" y="38" class="left bold">Path</text>
+    <text x="455" y="38" class="center bold">Effect</text>
+    <text x="555" y="38" class="center bold italic">SE</text>
+    <text x="699" y="38" class="center bold">95% CI</text>
+
+    <!-- Header rule -->
+    <line x1="18" y1="48" x2="788" y2="48" class="rule-thin" />
+
+    <!-- Row 1: a -->
+    <text x="18" y="67" class="left"><tspan class="italic">a</tspan> &#8212; oddity &#8594; unexpectedness</text>
+    <text x="455" y="67" class="center">2.821</text>
+    <text x="555" y="67" class="center">.036</text>
+    <text x="699" y="67" class="center">[2.750, 2.892]</text>
+
+    <!-- Row 2: b -->
+    <text x="18" y="95" class="left"><tspan class="italic">b</tspan> &#8212; unexpectedness &#8594; discomfort</text>
+    <text x="455" y="95" class="center">0.412</text>
+    <text x="555" y="95" class="center">.019</text>
+    <text x="699" y="95" class="center">[0.375, 0.449]</text>
+
+    <!-- Row 3: c -->
+    <text x="18" y="123" class="left"><tspan class="italic">c</tspan> &#8212; total effect of oddity</text>
+    <text x="455" y="123" class="center">0.772</text>
+    <text x="555" y="123" class="center">.039</text>
+    <text x="699" y="123" class="center">[0.696, 0.847]</text>
+
+    <!-- Row 4: c' -->
+    <text x="18" y="151" class="left"><tspan class="italic">c&#8242;</tspan> &#8212; direct effect of oddity</text>
+    <text x="455" y="151" class="center">&#8722;0.391</text>
+    <text x="555" y="151" class="center">.061</text>
+    <text x="699" y="151" class="center">[&#8722;0.511, &#8722;0.271]</text>
+
+    <!-- Row 5: ab -->
+    <text x="18" y="179" class="left"><tspan class="italic">ab</tspan> &#8212; indirect effect</text>
+    <text x="455" y="179" class="center">1.162</text>
+    <text x="555" y="179" class="center">.056</text>
+    <text x="699" y="179" class="center">[1.052, 1.275]</text>
+
+    <!-- Bottom rule -->
+    <line x1="18" y1="188" x2="788" y2="188" class="rule-thick" />
+</svg>

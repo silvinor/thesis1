@@ -1,0 +1,112 @@
+<svg viewBox="23 17 585 339" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+    <title id="ttl">Mean discomfort by oddity condition and activity level</title>
+    <desc id="dsc">Grouped bar chart of mean discomfort rating for No oddity vs Oddity conditions, split by Low vs High activity, with 95% CI error bars.</desc>
+
+    <defs>
+        <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse" fill="#202020">
+            <rect x="0" y="0" width="4" height="4" stroke="none" fill="#FFF" />
+            <circle cx="1" cy="1" r=".5" />
+            <circle cx="3" cy="3" r=".5" />
+        </pattern>
+        <pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect x="0" y="0" width="4" height="4" stroke="none" fill="#FFF" />
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#202020" stroke-width="2" />
+        </pattern>
+    </defs>    
+    <style>
+        text {
+            font-family: "Times New Roman", Times, serif;
+            fill: #111111;
+        }
+        .axis_lbl { font-size: 11.5px; font-weight: 700; }
+        .cat_lbl { font-size: 13px; font-weight: 600; text-anchor: middle; }
+        .axis_title { font-size: 13px; font-weight: 600; text-anchor: middle; }
+        .legend_lbl { font-size: 12.5px; text-anchor: start; }
+        .grid { stroke: #111111; stroke-width: 1; opacity: 0.15; }
+        .axis_line { stroke: #111111; stroke-width: 1.25; }
+        .tick { stroke: #111111; stroke-width: 1; }
+        .bar_low { fill: url(#dots); stroke: #111111; stroke-width: 1; }
+        .bar_high { fill: url(#hatch); stroke: #111111; stroke-width: 1; }
+        .err_halo { stroke: #ffffff; stroke-width: 4.5; }
+        .err { stroke: #111111; stroke-width: 1.5; }
+    </style>
+
+    <rect x="23" y="17" width="585" height="339" rx="16" fill="#ffffff" />
+
+    <!-- Gridlines -->
+    <line x1="90" y1="270" x2="590" y2="270" class="grid" />
+    <line x1="90" y1="230" x2="590" y2="230" class="grid" />
+    <line x1="90" y1="190" x2="590" y2="190" class="grid" />
+    <line x1="90" y1="150" x2="590" y2="150" class="grid" />
+    <line x1="90" y1="110" x2="590" y2="110" class="grid" />
+    <line x1="90" y1="70" x2="590" y2="70" class="grid" />
+
+    <!-- Axes -->
+    <line x1="90" y1="70" x2="90" y2="310" class="axis_line" />
+    <line x1="90" y1="310" x2="590" y2="310" class="axis_line" />
+
+    <!-- Y ticks + labels -->
+    <line x1="85" y1="310" x2="90" y2="310" class="tick" />
+    <text x="82" y="314" class="axis_lbl" text-anchor="end">1.0</text>
+    <line x1="85" y1="270" x2="90" y2="270" class="tick" />
+    <text x="82" y="274" class="axis_lbl" text-anchor="end">1.5</text>
+    <line x1="85" y1="230" x2="90" y2="230" class="tick" />
+    <text x="82" y="234" class="axis_lbl" text-anchor="end">2.0</text>
+    <line x1="85" y1="190" x2="90" y2="190" class="tick" />
+    <text x="82" y="194" class="axis_lbl" text-anchor="end">2.5</text>
+    <line x1="85" y1="150" x2="90" y2="150" class="tick" />
+    <text x="82" y="154" class="axis_lbl" text-anchor="end">3.0</text>
+    <line x1="85" y1="110" x2="90" y2="110" class="tick" />
+    <text x="82" y="114" class="axis_lbl" text-anchor="end">3.5</text>
+    <line x1="85" y1="70" x2="90" y2="70" class="tick" />
+    <text x="82" y="74" class="axis_lbl" text-anchor="end">4.0</text>
+
+    <text class="axis_title" transform="rotate(-90 48 190)" x="48" y="190">Mean discomfort rating</text>
+
+    <!-- Bars: No oddity (band center 215) -->
+    <path d="M126,310 L126,278 Q126,272 132,272 L208,272 Q214,272 214,278 L214,310 Z" class="bar_low" />
+    <path d="M216,310 L216,263 Q216,257 222,257 L298,257 Q304,257 304,263 L304,310 Z" class="bar_high" />
+
+    <!-- Bars: Oddity (band center 465) -->
+    <path d="M376,310 L376,222 Q376,216 382,216 L458,216 Q464,216 464,222 L464,310 Z" class="bar_low" />
+    <path d="M466,310 L466,195 Q466,189 472,189 L548,189 Q554,189 554,195 L554,310 Z" class="bar_high" />
+
+    <!-- Error bars (95% CI), white halo first so they read against the dark bar -->
+    <line x1="170" y1="277" x2="170" y2="267" class="err_halo" />
+    <line x1="160" y1="277" x2="180" y2="277" class="err_halo" />
+    <line x1="160" y1="267" x2="180" y2="267" class="err_halo" />
+    <line x1="170" y1="277" x2="170" y2="267" class="err" />
+    <line x1="160" y1="277" x2="180" y2="277" class="err" />
+    <line x1="160" y1="267" x2="180" y2="267" class="err" />
+
+    <line x1="260" y1="262" x2="260" y2="252" class="err_halo" />
+    <line x1="250" y1="262" x2="270" y2="262" class="err_halo" />
+    <line x1="250" y1="252" x2="270" y2="252" class="err_halo" />
+    <line x1="260" y1="262" x2="260" y2="252" class="err" />
+    <line x1="250" y1="262" x2="270" y2="262" class="err" />
+    <line x1="250" y1="252" x2="270" y2="252" class="err" />
+
+    <line x1="420" y1="224" x2="420" y2="210" class="err_halo" />
+    <line x1="410" y1="224" x2="430" y2="224" class="err_halo" />
+    <line x1="410" y1="210" x2="430" y2="210" class="err_halo" />
+    <line x1="420" y1="224" x2="420" y2="210" class="err" />
+    <line x1="410" y1="224" x2="430" y2="224" class="err" />
+    <line x1="410" y1="210" x2="430" y2="210" class="err" />
+
+    <line x1="510" y1="196" x2="510" y2="182" class="err_halo" />
+    <line x1="500" y1="196" x2="520" y2="196" class="err_halo" />
+    <line x1="500" y1="182" x2="520" y2="182" class="err_halo" />
+    <line x1="510" y1="196" x2="510" y2="182" class="err" />
+    <line x1="500" y1="196" x2="520" y2="196" class="err" />
+    <line x1="500" y1="182" x2="520" y2="182" class="err" />
+
+    <!-- X category labels -->
+    <text x="215" y="334" class="cat_lbl">No oddity</text>
+    <text x="465" y="334" class="cat_lbl">Oddity present</text>
+
+    <!-- Legend -->
+    <rect x="355" y="37" width="12" height="12" class="bar_low" />
+    <text x="373" y="47" class="legend_lbl">Low activity</text>
+    <rect x="482" y="37" width="12" height="12" class="bar_high" />
+    <text x="500" y="47" class="legend_lbl">High activity</text>
+</svg>
