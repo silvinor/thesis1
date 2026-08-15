@@ -1,108 +1,90 @@
-<svg viewBox="22 42 676 362" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<svg viewBox="0 0 674 336" width="674" height="336" xmlns="http://www.w3.org/2000/svg">
     <title id="ttl">Mediation paths from oddity to discomfort</title>
 
     <style>
-        .fil_blk { fill: currentColor; }
-        .clr_blk { color: currentColor; }
-        .str_blk {
-            stroke: currentColor;
-            stroke-width: 2.5;
-            stroke-linecap: butt;
-            stroke-linejoin: miter;
+        rect, line, polygon { stroke: #111; }
+        polygon, text { fill: #111; }
+
+        @media (prefers-color-scheme: dark) {
+            rect, line, polygon { stroke: #ddd; }
+            polygon, text { fill: #ddd; }
         }
-        .fnt_sz_n, .fnt_sz_s, .fnt_foot {
+
+        text {
             font-family: "Times New Roman", Times, serif;
-            dominant-baseline: auto;
+            font-size: 12pt;
         }
-        .fnt_sz_n {
-            font-size: 13.5px;
-            font-weight: 600;
-        }
-        .fnt_sz_s {
-            font-size: 11.5px;
-            font-weight: 400;
-            opacity: 0.65;
-        }
-        .fnt_foot {
-            font-size: 13px;
-            font-weight: 300;
-        }
-        .box {
-            stroke-width: 1.5;
-            opacity: 0.75;
-            fill: #eeeeee77;
-            stroke: #111;
-            color: #111;
-            stroke-linecap: butt;
+        line {
+            stroke-linecap: round;
             stroke-linejoin: miter;
         }
-        .i {
-            font-style: italic;
-        }
+        .italic { font-style: italic; }
+        .bold { font-weight: bold; }
+        .left { text-anchor: start; }
+        .center { text-anchor: middle; }
+        .small { font-size: 9pt; }
+        .bg { fill: transparent; }
     </style>
 
-    <defs>
-        <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
-            <path d="M0,0 L8,3 L0,6 z" class="fil_blk" />
-        </marker>
-        <mask id="imagine-text-gaps-0t5lw9" maskUnits="userSpaceOnUse">
-            <rect x="0" y="0" width="720" height="400" fill="white" />
-            <rect x="192" y="145" width="70.09375" height="20" fill="black" rx="2" />
-            <rect x="184" y="165" width="102.984375" height="17.5" fill="black" rx="2" />
-            <rect x="466" y="145" width="70.6953125" height="20" fill="black" rx="2" />
-            <rect x="466" y="165" width="75.65625" height="17.5" fill="black" rx="2" />
-            <rect x="292" y="237" width="74.71875" height="20" fill="black" rx="2" />
-            <rect x="248" y="271" width="191.7890625" height="17.5" fill="black" rx="2" />
-            <rect x="90.5859375" y="243" width="54.828125" height="21" fill="black" rx="2" />
-            <rect x="65.3515625" y="264" width="105.296875" height="17.5" fill="black" rx="2" />
-            <rect x="323.609375" y="69" width="76.78125" height="21" fill="black" rx="2" />
-            <rect x="300.70703125" y="87" width="122.5859375" height="21" fill="black" rx="2" />
-            <rect x="569.21875" y="243" width="65.5625" height="21" fill="black" rx="2" />
-            <rect x="536.91015625" y="264" width="130.1796875" height="17.5" fill="black" rx="2" />
-            <rect x="36" y="343.5" width="265.578125" height="19" fill="black" rx="2" />
-            <rect x="36" y="367" width="367.640625" height="17.5" fill="black" rx="2" />
-        </mask>
-    </defs>
+    <rect x="0" y="0" width="674" height="336" rx="16" stroke-width="0.001" class="bg" />
 
-    <rect x="22" y="42" width="676" height="362" rx="16" stroke="none" fill="#fff"></rect>
+    <!-- boxes -->
+    <g fill="none" stroke-width="2">
+        <rect x="262" y="18" width="156" height="58" rx="8" />
+        <rect x="18" y="190" width="156" height="58" rx="8" />
+        <rect x="502" y="190" width="156" height="58" rx="8" />
+    </g>
 
-    <line x1="163" y1="228" x2="292" y2="118" class="str_blk"
-        marker-end="url(#arrow)" mask="url(#imagine-text-gaps-0t5lw9)" />
-    <line x1="432" y1="118" x2="558" y2="228" class="str_blk"
-        marker-end="url(#arrow)" mask="url(#imagine-text-gaps-0t5lw9)" />
-    <line x1="196" y1="262" x2="524" y2="262" class="str_blk"
-        stroke-dasharray="7 5" marker-end="url(#arrow)" />
+    <!-- Lines -->
+    <g stroke-width="2.5">
+        <!-- <line x1="141" y1="186" x2="262" y2="76" opacity=".05" /> -->
+        <line x1="141" y1="186" x2="189.4" y2="142" />
+        <line x1="233.4" y1="102" x2="262" y2="76" />
+        <polygon points="262,76 258,86 251,79" />
+        <!-- <line x1="418" y1="76" x2="536" y2="186" opacity=".05" /> -->
+        <line x1="418" y1="76" x2="445.9" y2="102" />
+        <line x1="488.8" y1="142" x2="536" y2="186" />
+        <polygon points="536,186 525,182 531,175" />
+        <line x1="178" y1="220" x2="498" y2="220" stroke-dasharray="8 8" />
+        <polygon points="498,220 488,216 488,224" />
+    </g>
 
+    <line x1="40" y1="275" x2="634" y2="275" stroke-width="1" opacity=".75" />
 
-    <text x="180" y="160" class="fnt_sz_n fil_blk clr_blk">Path <tspan class="i">a</tspan>: <tspan class="i">B</tspan> = +2.821, <tspan class="i">p</tspan> &lt; .001</text>
-    <text x="180" y="178" class="fnt_sz_s fil_blk clr_blk">more unexpected</text>
-    <text x="430" y="160" class="fnt_sz_n fil_blk clr_blk">Path <tspan class="i">b</tspan>: <tspan class="i">B</tspan> = +0.412, <tspan class="i">p</tspan> &lt; .001</text>
-    <text x="430" y="178" class="fnt_sz_s fil_blk clr_blk">more discomfort</text>
-    <text x="360" y="252" text-anchor="middle" class="fnt_sz_n fil_blk clr_blk"><tspan class="i">c'</tspan>: <tspan class="i">B</tspan> = &#8722;0.391, <tspan class="i">p</tspan> &lt; .001</text>
-    <text x="360" y="284" text-anchor="middle" class="fnt_sz_s fil_blk clr_blk">controlling for perceived unexpectedness</text>
+    <g>
+        <!-- In box text -->
+        <text x="340" y="43" class="center bold"> Unexpectedness </text>
+        <text x="340" y="60" class="center small"> higher = more unexpected </text>
+        <text x="96" y="215" class="center bold"> Oddity </text>
+        <text x="96" y="232" class="center small"> present vs absent </text>
+        <text x="580" y="215" class="center bold"> Discomfort </text>
+        <text x="580" y="232" class="center small"> higher = more discomfort </text>
 
+        <!-- Arrow text -->
+        <text x="211" y="118" class="center bold"><tspan class="italic">a</tspan>: <tspan class="italic">B</tspan> = +2.821, <tspan class="italic">p</tspan> &lt; .001 </text>
+        <text x="211" y="136" class="center italic small">more unexpected</text>
+        <text x="467" y="118" class="center bold"><tspan class="italic">b</tspan>: <tspan class="italic">B</tspan> = +0.412, <tspan class="italic">p</tspan> &lt; .001 </text>
+        <text x="467" y="136" class="center italic small">more discomfort</text>
+        <text x="337" y="210" class="center bold"><tspan class="italic">c'</tspan>: <tspan class="italic">B</tspan> = &#8722;0.391, <tspan class="italic">p</tspan> &lt; .001 </text>
+        <text x="337" y="236" class="center small"> controlling for perceived unexpectedness </text>
+        <text x="337" y="250" class="center small italic"> less discomfort </text>
 
-    <rect x="40" y="232" width="156" height="58" rx="8" class="box" />
-    <text x="118" y="259" text-anchor="middle" class="fnt_sz_n fil_blk clr_blk">Oddity</text>
-    <text x="118" y="277" text-anchor="middle" class="fnt_sz_s fil_blk clr_blk">present vs absent</text>
-
-    <rect x="292" y="60" width="140" height="58" rx="8" class="box" />
-    <text x="362" y="85" text-anchor="middle" class="fnt_sz_n fil_blk clr_blk">Perceived</text>
-    <text x="362" y="103" text-anchor="middle" class="fnt_sz_n fil_blk clr_blk">Unexpectedness</text>
-
-    <rect x="524" y="232" width="156" height="58" rx="8" class="box" />
-    <text x="602" y="259" font-size="14.5" text-anchor="middle" class="fnt_sz_n fil_blk clr_blk">Discomfort</text>
-    <text x="602" y="277" font-size="11.5" text-anchor="middle" class="fnt_sz_s fil_blk clr_blk">higher = more discomfort</text>
-
-
-    <line x1="40" y1="330" x2="680" y2="330" stroke-width="1" stroke="#111" opacity="1" />
-    <text x="360" y="358" text-anchor="middle" class="fnt_foot fil_blk clr_blk">
-        <tspan opacity="0.7"> indirect </tspan>
-        <tspan font-weight="700"> (<tspan class="i">ab</tspan>) = +1.162 </tspan>
-        <tspan opacity="0.7"> + direct </tspan>
-        <tspan font-weight="700"> (<tspan class="i">c'</tspan>) = &#8722;0.391 </tspan>
-        <tspan opacity="0.7"> &#8594; total </tspan>
-        <tspan font-weight="700"> (<tspan class="i">c</tspan>) = +0.772, <tspan class="i">p</tspan> &lt; .001</tspan>
-    </text>
-    <text x="360" y="380" text-anchor="middle" opacity="0.2" class="fnt_sz_s clr_blk fil_blk"> 95% Bootstrap CI [1.052, 1.275] </text>
+        <!-- Descriptives -->
+        <g opacity=".75">
+            <text x="337" y="300" class="center">
+                <tspan> indirect </tspan>
+                <tspan class="bold"> (<tspan class="italic">a&#x00D7;b</tspan>) = +1.162 </tspan>
+                <tspan> + direct </tspan>
+                <tspan class="bold"> (<tspan class="italic">c'</tspan>) = &#8722;0.391 </tspan>
+                <tspan> &#8594; total </tspan>
+                <tspan class="bold"> (<tspan class="italic">c</tspan>) = +0.772, <tspan class="italic">p</tspan> &lt; .001 </tspan>
+            </text>
+            <text x="337" y="318" class="center small"> 
+                <tspan> indirect </tspan>
+                <tspan class="bold"> (<tspan class="italic">a&#x00D7;b</tspan>) </tspan>
+                <tspan> @ </tspan>
+                <tspan> 95% Bootstrap CI [1.052, 1.275] </tspan>
+            </text>
+        </g>
+    </g>
 </svg>

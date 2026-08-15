@@ -3,27 +3,37 @@
     <desc id="dsc">APA-7 formatted table of descriptive statistics for Unexpectedness and Discomfort ratings, showing scale, M, SD, SE, and 95% CI.</desc>
 
     <style>
+        rect, line, polygon { stroke: #111; }
+        polygon, text { fill: #111; }
+
+        @media (prefers-color-scheme: dark) {
+            rect, line, polygon { stroke: #ddd; }
+            polygon, text { fill: #ddd; }
+        }
+
         text {
             font-family: "Times New Roman", Times, serif;
-            font-size: 14pt;
-            fill: #000000;
+            font-size: 12pt;
+        }
+        line {
+            stroke-linecap: round;
+            stroke-linejoin: miter;
         }
         .italic { font-style: italic; }
         .bold { font-weight: bold; }
         .left { text-anchor: start; }
         .center { text-anchor: middle; }
-        line {
-            stroke: #000000;
-            stroke-linecap: butt;
-        }
-        .rule-thick { stroke-width: 1.25; }
-        .rule-thin { stroke-width: 0.75; }
+        .small { font-size: 9pt; }
+        .bg { fill: transparent; }
+
+        .thick { stroke-width: 1.25; }
+        .thin { stroke-width: 0.75; }
     </style>
 
-    <rect x="0" y="0" width="637" height="123" fill="#ffffff" rx="16" />
+    <rect x="0" y="0" width="637" height="123" rx="16" stroke-width="0.001" class="bg" />
 
     <!-- Top rule: 14pt (~18px) from top edge -->
-    <line x1="18" y1="18" x2="618" y2="18" class="rule-thick" />
+    <line x1="18" y1="18" x2="618" y2="18" class="thick" />
 
     <!-- Column headers -->
     <text x="18" y="38" class="left bold">Measure</text>
@@ -34,7 +44,7 @@
     <text x="538" y="38" class="center bold">95% CI</text>
 
     <!-- Header rule -->
-    <line x1="18" y1="48" x2="618" y2="48" class="rule-thin" />
+    <line x1="18" y1="48" x2="618" y2="48" class="thin" />
 
     <!-- Row 1: Unexpectedness -->
     <text x="18" y="67" class="left">Unexpectedness</text>
@@ -53,5 +63,5 @@
     <text x="538" y="95" class="center">[1.91, 2.00]</text>
 
     <!-- Bottom rule: 14pt (~18px) from bottom edge -->
-    <line x1="18" y1="104" x2="618" y2="104" class="rule-thick" />
+    <line x1="18" y1="104" x2="618" y2="104" class="thick" />
 </svg>

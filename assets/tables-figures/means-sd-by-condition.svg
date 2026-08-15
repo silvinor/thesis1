@@ -3,27 +3,37 @@
     <desc id="dsc">APA-7 formatted table of Unexpectedness and Discomfort M (SD) and 95% CI by condition (oddity x activity level).</desc>
 
     <style>
+        rect, line, polygon { stroke: #111; }
+        polygon, text { fill: #111; }
+
+        @media (prefers-color-scheme: dark) {
+            rect, line, polygon { stroke: #ddd; }
+            polygon, text { fill: #ddd; }
+        }
+
         text {
             font-family: "Times New Roman", Times, serif;
-            font-size: 14pt;
-            fill: #000000;
+            font-size: 12pt;
+        }
+        line {
+            stroke-linecap: round;
+            stroke-linejoin: miter;
         }
         .italic { font-style: italic; }
         .bold { font-weight: bold; }
         .left { text-anchor: start; }
         .center { text-anchor: middle; }
-        line {
-            stroke: #000000;
-            stroke-linecap: butt;
-        }
-        .rule-thick { stroke-width: 1.25; }
-        .rule-thin { stroke-width: 0.75; }
+        .small { font-size: 9pt; }
+        .bg { fill: transparent; }
+
+        .thick { stroke-width: 1.25; }
+        .thin { stroke-width: 0.75; }
     </style>
 
-    <rect x="0" y="0" width="986" height="178" fill="#ffffff" rx="16" />
+    <rect x="0" y="0" width="986" height="178" rx="16" class="bg" stroke-width="0.001" />
 
     <!-- Top rule: 14pt (~18px) from top edge -->
-    <line x1="18" y1="18" x2="968" y2="18" class="rule-thick" />
+    <line x1="18" y1="18" x2="968" y2="18" class="thick" />
 
     <!-- Column headers -->
     <text x="18" y="38" class="left bold">Condition</text>
@@ -33,7 +43,7 @@
     <text x="903" y="38" class="center bold">95% CI</text>
 
     <!-- Header rule -->
-    <line x1="18" y1="48" x2="968" y2="48" class="rule-thin" />
+    <line x1="18" y1="48" x2="968" y2="48" class="thin" />
 
     <!-- Row 1: No oddity / low activity -->
     <text x="18" y="67" class="left">No oddity / low activity</text>
@@ -64,5 +74,5 @@
     <text x="903" y="151" class="center">[2.43, 2.60]</text>
 
     <!-- Bottom rule: 14pt (~18px) from bottom edge -->
-    <line x1="18" y1="160" x2="968" y2="160" class="rule-thick" />
+    <line x1="18" y1="160" x2="968" y2="160" class="thick" />
 </svg>

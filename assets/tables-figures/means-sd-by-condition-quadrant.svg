@@ -1,40 +1,50 @@
-<svg viewBox="0 0 830 266" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<svg viewBox="0 0 830 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
     <title id="ttl">Means and standard deviations by condition (quadrant layout)</title>
     <desc id="dsc">APA-7 formatted table of Unexpectedness and Discomfort M, SD, and 95% CI, crossed by oddity condition (No oddity / Oddity) and activity level (Low / High).</desc>
 
     <style>
+        rect, line, polygon { stroke: #111; }
+        polygon, text { fill: #111; }
+
+        @media (prefers-color-scheme: dark) {
+            rect, line, polygon { stroke: #ddd; }
+            polygon, text { fill: #ddd; }
+        }
+
         text {
             font-family: "Times New Roman", Times, serif;
-            font-size: 14pt;
-            fill: #000000;
+            font-size: 12pt;
+        }
+        line {
+            stroke-linecap: round;
+            stroke-linejoin: miter;
         }
         .italic { font-style: italic; }
         .bold { font-weight: bold; }
         .left { text-anchor: start; }
         .center { text-anchor: middle; }
-        line {
-            stroke: #000000;
-            stroke-linecap: butt;
-        }
-        .rule-thick { stroke-width: 1.25; }
-        .rule-thin { stroke-width: 0.75; }
+        .small { font-size: 9pt; }
+        .bg { fill: transparent; }
+
+        .thick { stroke-width: 1.25; }
+        .thin { stroke-width: 0.75; }
     </style>
 
-    <rect x="0" y="0" width="830" height="266" fill="#ffffff" rx="16" />
+    <rect x="0" y="0" width="830" height="270" rx="16" class="bg" stroke-width="0.001" />
 
     <!-- Top rule -->
-    <line x1="18" y1="18" x2="812" y2="18" class="rule-thick" />
+    <line x1="18" y1="18" x2="812" y2="18" class="thick" />
 
     <!-- Group headers -->
     <text x="315" y="38" class="center bold">No oddity</text>
     <text x="657" y="38" class="center bold">Oddity</text>
 
     <!-- Group underlines (span only the M / SD / 95% CI sub-columns) -->
-    <line x1="165" y1="48" x2="465" y2="48" class="rule-thin" />
-    <line x1="507" y1="48" x2="807" y2="48" class="rule-thin" />
+    <line x1="165" y1="48" x2="465" y2="48" class="thin" />
+    <line x1="507" y1="48" x2="807" y2="48" class="thin" />
 
     <!-- Sub-column headers -->
-    <text x="18" y="68" class="left bold">Activity</text>
+    <text x="18" y="68" class="left bold">Activity (noise)</text>
     <text x="205" y="68" class="center bold italic">M</text>
     <text x="295" y="68" class="center bold italic">SD</text>
     <text x="405" y="68" class="center bold">95% CI</text>
@@ -43,10 +53,10 @@
     <text x="747" y="68" class="center bold">95% CI</text>
 
     <!-- Header rule -->
-    <line x1="18" y1="78" x2="812" y2="78" class="rule-thick" />
+    <line x1="18" y1="78" x2="812" y2="78" class="thick" />
 
     <!-- Section: Unexpectedness -->
-    <text x="415" y="98" class="center bold">Unexpectedness</text>
+    <text x="486" y="98" class="center bold">Unexpectedness</text>
 
     <text x="18" y="126" class="left bold">Low</text>
     <text x="205" y="126" class="center">1.52</text>
@@ -65,27 +75,27 @@
     <text x="747" y="154" class="center">[4.27, 4.42]</text>
 
     <!-- Section divider -->
-    <line x1="18" y1="163" x2="812" y2="163" class="rule-thick" />
+    <line x1="18" y1="165" x2="812" y2="165" class="thick" />
 
     <!-- Section: Discomfort -->
-    <text x="415" y="183" class="center bold">Discomfort</text>
+    <text x="486" y="185" class="center bold">Discomfort</text>
 
-    <text x="18" y="211" class="left bold">Low</text>
-    <text x="205" y="211" class="center">1.47</text>
-    <text x="295" y="211" class="center">0.88</text>
-    <text x="405" y="211" class="center">[1.41, 1.54]</text>
-    <text x="547" y="211" class="center">2.17</text>
-    <text x="637" y="211" class="center">1.10</text>
-    <text x="747" y="211" class="center">[2.08, 2.25]</text>
+    <text x="18"  y="213" class="left bold">Low</text>
+    <text x="205" y="213" class="center">1.47</text>
+    <text x="295" y="213" class="center">0.88</text>
+    <text x="405" y="213" class="center">[1.41, 1.54]</text>
+    <text x="547" y="213" class="center">2.17</text>
+    <text x="637" y="213" class="center">1.10</text>
+    <text x="747" y="213" class="center">[2.08, 2.25]</text>
 
-    <text x="18" y="239" class="left bold">High</text>
-    <text x="205" y="239" class="center">1.66</text>
-    <text x="295" y="239" class="center">0.89</text>
-    <text x="405" y="239" class="center">[1.60, 1.73]</text>
-    <text x="547" y="239" class="center">2.51</text>
-    <text x="637" y="239" class="center">1.14</text>
-    <text x="747" y="239" class="center">[2.43, 2.60]</text>
+    <text x="18"  y="241" class="left bold">High</text>
+    <text x="205" y="241" class="center">1.66</text>
+    <text x="295" y="241" class="center">0.89</text>
+    <text x="405" y="241" class="center">[1.60, 1.73]</text>
+    <text x="547" y="241" class="center">2.51</text>
+    <text x="637" y="241" class="center">1.14</text>
+    <text x="747" y="241" class="center">[2.43, 2.60]</text>
 
     <!-- Bottom rule -->
-    <line x1="18" y1="248" x2="812" y2="248" class="rule-thick" />
+    <line x1="18" y1="252" x2="812" y2="252" class="thick" />
 </svg>
