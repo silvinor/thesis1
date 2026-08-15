@@ -25,7 +25,7 @@
         - `c_oddnse`
         - `c_tmzone`
 
-    ![](assets/recreate/01_data_structure_after_import.jpg)
+    ![](assets/recreate/01_data_structure_after_import.png)
 
     (These are the coded columns we will use in the analysis.)
 
@@ -41,19 +41,19 @@
     - Factor List: *(empty)*
     - Display: **Statistics** (radio, bottom left)
 
-        ![](assets/recreate/02.jpg)
+        ![](assets/recreate/02.png)
 
     - Press the `Statistics...` button
 
         - Statistics: Tick **Descriptives**, Confidence Interval for Mean: **95%**
 
-            ![](assets/recreate/03.jpg)
+            ![](assets/recreate/03.png)
 
     - Continue → OK
 
     - Result will be:
 
-        ![](assets/recreate/04.jpg)
+        ![](assets/recreate/04.png)
 
 ---
 
@@ -65,15 +65,15 @@
 
     - Factor List: `quadrant`
 
-        ![](assets/recreate/05.jpg)
+        ![](assets/recreate/05.png)
 
     - OK
 
     - Result will be:
 
-        ![](assets/recreate/06A.jpg)
-        ![](assets/recreate/06B.jpg)
-        ![](assets/recreate/06C.jpg)
+        ![](assets/recreate/06A.png)
+        ![](assets/recreate/06B.png)
+        ![](assets/recreate/06C.png)
 
 ---
 
@@ -118,13 +118,13 @@
     - Column(s): `c_oddity`
     - Layer 1 of 1: `c_noise`
 
-    ![](assets/recreate/07.jpg)
+    ![](assets/recreate/07.png)
 
 - OK
 
 - Result will be:
 
-    ![](assets/recreate/08.jpg)
+    ![](assets/recreate/08.png)
 
     - Everything checks out structurally: 2688 valid, 0 missing, 672 per cell.
     - *N* = 84 participants, 2688 ratings (672 per quadrant cell, or 32 per participant).

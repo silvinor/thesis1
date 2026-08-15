@@ -10,7 +10,7 @@
     - 2 participants were excluded from analysis for their data not being completely processed by the system (i.e. they were paid but we didn't get their data)
     - 1 participant was rejected for not completing all the tasks with due diligence.
 
-        ![](assets/recreate/00_attention_checks.jpg)
+        ![](assets/recreate/00_attention_checks.png)
 
         - Participant 74, with id `6a55f1d8045ad75a5b407efe` was selected for exclusion in the data.
         - Was rejected due to perceived inattention in the the other trails - of which pp 74 failed 4 of the 5. *(This trial was not tested for attention as the design did not include reaction testing.)* Participants responses where judged to not be reliable by the cohort.

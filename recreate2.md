@@ -26,13 +26,13 @@ than normal scenes.
 
     - Variable: `c_oddnse`
 
-    ![](assets/recreate/09.jpg)
+    ![](assets/recreate/09.png)
 
 - OK
 
 - It should show exactly two values, 0 (n = 2016) and 1 (n = 672).
 
-    ![](assets/recreate/10.jpg)
+    ![](assets/recreate/10.png)
 
     - It does.
 
@@ -49,7 +49,7 @@ than normal scenes.
     - Dependent: `c_discom`
     - Independent(s): `c_oddity`, `c_noise`, `c_oddnse` (all three in **Block 1**, Method: **Enter**)
 
-    ![](assets/recreate/11.jpg)
+    ![](assets/recreate/11.png)
 
 - Click on **Statistics** button, then select (tick):
 
@@ -65,7 +65,7 @@ than normal scenes.
         - Durbin-Watson
         - Casewise diagnostics → (Outliers outside: `3` SD)
    
-    ![](assets/recreate/12.jpg)
+    ![](assets/recreate/12.png)
 
 - Continue (to get back to Linear Regression dialog)
 
@@ -76,7 +76,7 @@ than normal scenes.
         - Histogram
         -  Normal probability plot
 
-    ![](assets/recreate/13.jpg)
+    ![](assets/recreate/13.png)
 
 - Continue (to get back to Linear Regression dialog)
 
@@ -86,7 +86,7 @@ than normal scenes.
         - Cook's
         - Leverage values
 
-    ![](assets/recreate/14.jpg)
+    ![](assets/recreate/14.png)
 
 - Continue → and then, **OK**
 
@@ -94,13 +94,13 @@ than normal scenes.
 
 ## Results
 
-![](assets/recreate/15.jpg)
-![](assets/recreate/16.jpg)
-![](assets/recreate/17.jpg)
-![](assets/recreate/18.jpg)
-![](assets/recreate/19A.jpg)
-![](assets/recreate/19B.jpg)
-![](assets/recreate/19C.jpg)
+![](assets/recreate/15.png)
+![](assets/recreate/16.png)
+![](assets/recreate/17.png)
+![](assets/recreate/18.png)
+![](assets/recreate/19A.png)
+![](assets/recreate/19B.png)
+![](assets/recreate/19C.png)
 
 - What to read
 

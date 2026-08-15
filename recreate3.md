@@ -27,7 +27,7 @@
     - Confidence intervals: `95`
     - Number of bootstrap samples: `5000`
 
-    ![](assets/recreate/20.jpg)
+    ![](assets/recreate/20.png)
 
 - Select the **Options** button:
     - Tick: 
@@ -35,7 +35,7 @@
         - Standardized effects → *gives the completely standardised indirect effect as the effect size*
         - Heteroscedasticity-consistent inference → select **HC4 (Cribari-Neto)** from the dropdown
 
-    ![](assets/recreate/21.jpg)
+    ![](assets/recreate/21.png)
 
 - Continue, & OK
 
@@ -45,8 +45,8 @@
 
 - Output:
     
-    ![](assets/recreate/22A.jpg)
-    ![](assets/recreate/22B.jpg)
+    ![](assets/recreate/22A.png)
+    ![](assets/recreate/22B.png)
 
 - **H3 is supported** - the indirect effect is large and its CI is nowhere near zero. But the direct effect flips sign, which is the interesting part and needs expanding on.
 
@@ -93,7 +93,7 @@
 
 - Then right-click and `Run All`
 
-    ![](assets/recreate/23.jpg)
+    ![](assets/recreate/23.png)
 
 ---
 
@@ -101,8 +101,8 @@
 
 - Output:
     
-    ![](assets/recreate/24A.jpg)
-    ![](assets/recreate/24B.jpg)
+    ![](assets/recreate/24A.png)
+    ![](assets/recreate/24B.png)
 
 - Substantively identical. Every OLS estimate - *a*, *b*, *c*, *c′*, and all model summaries - is unchanged.
 
