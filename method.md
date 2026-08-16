@@ -66,7 +66,7 @@ Images were selected and ordered by a custom randomisation script written for Go
 
 Because the two runs were independent, each scene family was seen exactly twice by every participant, but the condition it appeared in on the second run was drawn without reference to the first. A family could therefore repeat in the same condition or appear in a different one; across the sample, 24.0% of repeated families fell in the same condition, closely matching the 25% expected by chance. Presentation order and scene-to-condition pairing were random and unique to each person, which spread every scene family across all four conditions at the sample level. The repetition is noted as a limitation, since a second exposure to a familiar setting may attenuate its perceived unexpectedness.
 
-The task was deliberately short to limit fatigue. The 32-trial rating block took a median of 5 minutes 09 seconds to complete (IQR = 2 min 17 s, range 2 min 11 s to 15 min 19 s), and the full session, including the Participant Information Statement, instructions, and demographic items, was advertised on Prolific as approximately 10 minutes. Because all study information was provided up front, there was no separate end-of-study debrief.
+The task was deliberately short to limit fatigue. The 32-trial rating block took a median of 5 minutes 10 seconds to complete (IQR = 2 min 16 s, range 2 min 11 s to 15 min 19 s), and the full session, including the Participant Information Statement, instructions, and demographic items, was advertised on Prolific as approximately 10 minutes. Because all study information was provided up front, there was no separate end-of-study debrief.
 
 ## Data Analysis
 
