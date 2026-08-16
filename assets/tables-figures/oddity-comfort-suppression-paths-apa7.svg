@@ -18,38 +18,49 @@
             stroke-linecap: round;
             stroke-linejoin: miter;
         }
+        rect {
+            fill: none;
+        }
         .italic { font-style: italic; }
         .bold { font-weight: bold; }
         .left { text-anchor: start; }
         .center { text-anchor: middle; }
         .small { font-size: 9pt; }
         .bg { fill: transparent; }
+
+        .thick { stroke-width: 2; }
+        .thin { stroke-width: 0.75; }
+        .dashed { stroke-dasharray: 8 8; }
     </style>
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,0 10,5 0,10" stroke="none" />
+        </marker>
+    </defs>
 
     <rect x="0" y="0" width="674" height="336" rx="16" stroke-width="0.001" class="bg" />
 
     <!-- boxes -->
-    <g fill="none" stroke-width="2">
+    <g class="thin">
         <rect x="262" y="18" width="156" height="58" rx="8" />
         <rect x="18" y="190" width="156" height="58" rx="8" />
         <rect x="502" y="190" width="156" height="58" rx="8" />
     </g>
 
     <!-- Lines -->
-    <g stroke-width="2.5">
+    <g class="thick">
         <!-- <line x1="141" y1="186" x2="262" y2="76" opacity=".05" /> -->
         <line x1="141" y1="186" x2="189.4" y2="142" />
-        <line x1="233.4" y1="102" x2="262" y2="76" />
-        <polygon points="262,76 258,86 251,79" />
+        <line x1="233.4" y1="102" x2="262" y2="76" marker-end="url(#arrow)" />
+        <!-- <polygon points="262,76 258,86 251,79" /> -->
         <!-- <line x1="418" y1="76" x2="536" y2="186" opacity=".05" /> -->
         <line x1="418" y1="76" x2="445.9" y2="102" />
-        <line x1="488.8" y1="142" x2="536" y2="186" />
-        <polygon points="536,186 525,182 531,175" />
-        <line x1="178" y1="220" x2="498" y2="220" stroke-dasharray="8 8" />
-        <polygon points="498,220 488,216 488,224" />
+        <line x1="488.8" y1="142" x2="536" y2="186" marker-end="url(#arrow)" />
+        <!-- <polygon points="536,186 525,182 531,175" /> -->
+        <line x1="178" y1="220" x2="498" y2="220" class="dashed" marker-end="url(#arrow)" />
+        <!-- <polygon points="498,220 488,216 488,224" /> -->
     </g>
-
-    <line x1="40" y1="275" x2="634" y2="275" stroke-width="1" opacity=".75" />
 
     <g>
         <!-- In box text -->
@@ -68,23 +79,24 @@
         <text x="337" y="210" class="center bold"><tspan class="italic">c'</tspan>: <tspan class="italic">B</tspan> = &#8722;0.391, <tspan class="italic">p</tspan> &lt; .001 </text>
         <text x="337" y="236" class="center small"> controlling for perceived unexpectedness </text>
         <text x="337" y="250" class="center small italic"> less discomfort </text>
+    </g>
 
-        <!-- Descriptives -->
-        <g opacity=".75">
-            <text x="337" y="300" class="center">
-                <tspan> indirect </tspan>
-                <tspan class="bold"> (<tspan class="italic">a&#x00D7;b</tspan>) = +1.162 </tspan>
-                <tspan> + direct </tspan>
-                <tspan class="bold"> (<tspan class="italic">c'</tspan>) = &#8722;0.391 </tspan>
-                <tspan> &#8594; total </tspan>
-                <tspan class="bold"> (<tspan class="italic">c</tspan>) = +0.772, <tspan class="italic">p</tspan> &lt; .001 </tspan>
-            </text>
-            <text x="337" y="318" class="center small"> 
-                <tspan> indirect </tspan>
-                <tspan class="bold"> (<tspan class="italic">a&#x00D7;b</tspan>) </tspan>
-                <tspan> @ </tspan>
-                <tspan> 95% Bootstrap CI [1.052, 1.275] </tspan>
-            </text>
-        </g>
+    <!-- Descriptives -->
+    <g opacity=".75">
+        <line x1="90" y1="275" x2="584" y2="275" class="thin" />
+        <text x="337" y="300" class="center">
+            <tspan> indirect </tspan>
+            <tspan class="bold"> (<tspan class="italic">a&#x00D7;b</tspan>) = +1.162 </tspan>
+            <tspan> + direct </tspan>
+            <tspan class="bold"> (<tspan class="italic">c'</tspan>) = &#8722;0.391 </tspan>
+            <tspan> &#8594; total </tspan>
+            <tspan class="bold"> (<tspan class="italic">c</tspan>) = +0.772, <tspan class="italic">p</tspan> &lt; .001 </tspan>
+        </text>
+        <text x="337" y="318" class="center small"> 
+            <tspan> indirect </tspan>
+            <tspan class="bold"> (<tspan class="italic">a&#x00D7;b</tspan>) </tspan>
+            <tspan> @ </tspan>
+            <tspan> 95% Bootstrap CI [1.052, 1.275] </tspan>
+        </text>
     </g>
 </svg>

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 460 123" width="460" height="123" xmlns="http://www.w3.org/2000/svg" role="img">
+    <title id="ttl">Experimental conditions table</title>
+    <desc id="dsc">APA-7 formatted 2x2 table of experimental conditions crossing noise level (low, high) with stimulus type (normal, oddity).</desc>
+
+    <style>
+        rect, line, polygon { stroke: #111; }
+        polygon, text { fill: #111; }
+
+        @media (prefers-color-scheme: dark) {
+            rect, line, polygon { stroke: #ddd; }
+            polygon, text { fill: #ddd; }
+        }
+
+        text {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12pt;
+        }
+        line {
+            stroke-linecap: round;
+            stroke-linejoin: miter;
+        }
+        .italic { font-style: italic; }
+        .bold { font-weight: bold; }
+        .left { text-anchor: start; }
+        .center { text-anchor: middle; }
+        .small { font-size: 9pt; }
+        .bg { fill: transparent; }
+
+        .thick { stroke-width: 1.25; }
+        .thin { stroke-width: 0.75; }
+    </style>
+
+    <rect x="0" y="0" width="460" height="123" rx="16" stroke-width="0.001" class="bg" />
+
+    <!-- Top rule: 14pt (~18px) from top edge -->
+    <line x1="18" y1="18" x2="442" y2="18" class="thick" />
+
+    <!-- Column headers -->
+    <text x="180" y="38" class="center bold">Low Noise</text>
+    <text x="340" y="38" class="center bold">High Noise</text>
+
+    <!-- Header rule -->
+    <line x1="18" y1="48" x2="442" y2="48" class="thin" />
+
+    <!-- Row 1: Normal -->
+    <text x="18" y="67" class="left bold">Normal</text>
+    <text x="180" y="67" class="center">Low noise, normal</text>
+    <text x="340" y="67" class="center">High noise, normal</text>
+
+    <!-- Row 2: Oddity -->
+    <text x="18" y="95" class="left bold">Oddity</text>
+    <text x="180" y="95" class="center">Low noise + oddity</text>
+    <text x="340" y="95" class="center">High noise + oddity</text>
+
+    <!-- Bottom rule: 14pt (~18px) from bottom edge -->
+    <line x1="18" y1="104" x2="442" y2="104" class="thick" />
+</svg>

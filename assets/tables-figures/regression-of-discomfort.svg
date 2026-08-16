@@ -1,4 +1,4 @@
-<svg viewBox="0 0 806 178" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<svg viewBox="0 0 806 178" width="806" height="178" xmlns="http://www.w3.org/2000/svg" role="img">
     <title id="ttl">Regression of discomfort</title>
     <desc id="dsc">APA-7 formatted regression table predicting discomfort from oddity, activity (noise), and their interaction, with b, SE, 95% CI, beta, t, p, and sr squared.</desc>
 

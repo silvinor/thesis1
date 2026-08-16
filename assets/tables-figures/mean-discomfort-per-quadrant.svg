@@ -1,4 +1,4 @@
-<svg viewBox="23 17 585 339" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<svg viewBox="23 17 585 339" width="585" height="339" xmlns="http://www.w3.org/2000/svg" role="img">
     <title id="ttl">Mean discomfort by oddity condition and activity level</title>
     <desc id="dsc">Grouped bar chart of mean discomfort rating for No oddity vs Oddity conditions, split by Low vs High activity, with 95% CI error bars.</desc>
 
