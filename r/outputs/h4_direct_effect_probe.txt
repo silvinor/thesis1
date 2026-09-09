@@ -1,0 +1,332 @@
+
+====================================================================================
+PROBING THE NEGATIVE DIRECT EFFECT
+Is c' real, and if so what is it not?
+====================================================================================
+
+Data      ../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv
+Rows      2688
+Baseline  a = 2.8207   b = 0.4120   c = 0.7716   c' = -0.3906
+
+c' is the effect of oddity on discomfort with unexpectedness held
+constant. It is negative and the total effect is positive, so the two
+pathways run in opposite directions. Everything below asks whether that
+negative sign is a finding or an artifact.
+
+====================================================================================
+1. COMMON SUPPORT - is c' interpolated or extrapolated?
+====================================================================================
+
+If odd and normal scenes never receive the same unexpectedness rating,
+then 'holding unexpectedness constant' compares nothing to nothing and
+c' is pure model extrapolation. Count the overlap.
+
+c_expect     normal n      odd n   % normal      % odd    support
+------------------------------------------------------------------------------------
+1                 950         40       70.7        3.0         ok
+2                 266         86       19.8        6.4         ok
+3                  41         39        3.1        2.9         ok
+4                  74        467        5.5       34.7         ok
+5                  13        712        1.0       53.0         ok
+------------------------------------------------------------------------------------
+Levels with usable overlap (both arms >= 10): 5 of 5.
+A level marked NONE contributes nothing but leverage; 'thin' contributes
+an estimate with almost no data behind it. Read section 2 accordingly.
+
+====================================================================================
+2. STRATIFIED DIRECT EFFECT - c' without a mediation model
+====================================================================================
+
+Within each unexpectedness level, regress discomfort on oddity (plus
+activity). No mediator, no linearity assumption, no product terms - just
+odd vs normal scenes that received the SAME unexpectedness rating.
+If the curiosity reading is right, every row should be negative.
+
+c_expect   n norm  n odd   M(norm)    M(odd)       diff                 95% CI
+------------------------------------------------------------------------------------
+1             950     40     1.360     1.250    -0.0998      [-0.3202, 0.1206]
+2             266     86     1.872     1.500    -0.3939     [-0.5886, -0.1992] ***
+3              41     39     2.195     2.179    -0.0378      [-0.4514, 0.3757]
+4              74    467     2.473     2.041    -0.4298     [-0.6822, -0.1773] ***
+5              13    712     3.462     2.708    -0.7378     [-1.2463, -0.2293] **
+------------------------------------------------------------------------------------
+diff < 0 means odd scenes were rated MORE comfortable at that level of
+unexpectedness. * p<.05  ** p<.01  *** p<.001
+
+Same, split by c_propen
+------------------------------------------------------------------------------------
+Adventurous
+c_expect   n norm  n odd   M(norm)    M(odd)       diff                 95% CI
+1             502     24     1.299     1.208    -0.0874      [-0.3760, 0.2012]
+2             137     50     1.708     1.320    -0.3983     [-0.6029, -0.1938] ***
+3              27     26     1.889     2.077     0.1510      [-0.3287, 0.6306]
+4              30    255     1.900     1.796    -0.1125      [-0.5273, 0.3023]
+5               8    349     3.625     2.467    -1.1175     [-1.7974, -0.4377] **
+
+Cautious
+c_expect   n norm  n odd   M(norm)    M(odd)       diff                 95% CI
+1             448     16     1.429     1.312    -0.1066      [-0.4612, 0.2481]
+2             129     36     2.047     1.750    -0.3316      [-0.6905, 0.0272]
+3              14     13     2.786     2.385    -0.3779      [-1.0960, 0.3402]
+4              44    212     2.864     2.335    -0.5112     [-0.7839, -0.2385] ***
+5               5    363     3.200     2.939    -0.3241      [-1.4633, 0.8151]
+
+
+====================================================================================
+3. FUNCTIONAL FORM - is c' an artifact of a linear b path?
+====================================================================================
+
+c_expect is a 5-point ordinal item treated as continuous. If the true
+relationship between unexpectedness and discomfort is curved, forcing a
+straight line could manufacture a negative c'. Refit with the mediator
+as a set of dummies, which imposes no shape at all.
+
+Linear mediator
+------------------------------------------------------------------------------------
+Term                     b       SE                 95% CI         t         p
+------------------------------------------------------------------------------------
+oddity             -0.3906    .0612     [-0.5106, -0.2706]   -6.3821    < .001 ***
+expect              0.4120    .0188       [0.3751, 0.4490]   21.8756    < .001 ***
+noise               0.2658    .0355       [0.1962, 0.3355]    7.4853    < .001 ***
+------------------------------------------------------------------------------------
+R-squared = .2721   n = 2688   [HC4]
+
+Mediator as factor (reference c_expect = 1)
+------------------------------------------------------------------------------------
+Term                     b       SE                 95% CI         t         p
+------------------------------------------------------------------------------------
+Constant            1.2377    .0282       [1.1825, 1.2930]   43.9201    < .001 ***
+oddity             -0.3361    .0621     [-0.4578, -0.2144]   -5.4158    < .001 ***
+expect_2            0.5063    .0511       [0.4060, 0.6065]    9.8991    < .001 ***
+expect_3            1.0035    .1114       [0.7851, 1.2219]    9.0096    < .001 ***
+expect_4            1.0522    .0703       [0.9143, 1.1901]   14.9586    < .001 ***
+expect_5            1.6714    .0756       [1.5232, 1.8196]   22.1170    < .001 ***
+noise               0.2516    .0357       [0.1816, 0.3216]    7.0483    < .001 ***
+------------------------------------------------------------------------------------
+R-squared = .2790   n = 2688   [HC4]
+
+c' linear = -0.3906     c' factor = -0.3361     shift = 0.0545
+The dummy pattern shows whether the b path is straight. If the dummies
+rise unevenly the linear b is a summary, not a description - but c'
+surviving the switch means the negative sign is not a shape artifact.
+
+====================================================================================
+4. CELL STRUCTURE - the 2x2 quadrants
+====================================================================================
+
+Cell means for both the mediator and the outcome, then the oddity x
+activity interaction on each. The additive models used elsewhere in this
+project cannot see an interaction, so if one exists it has been folded
+into a misleadingly null main effect.
+
+Condition                       c_expect M (SD)                 95% CI    c_discom M (SD)                 95% CI
+------------------------------------------------------------------------------------
+No oddity / low activity            1.52 (0.90)           [1.45, 1.59]        1.47 (0.83)           [1.41, 1.54]
+No oddity / high activity           1.41 (0.84)           [1.34, 1.47]        1.66 (0.89)           [1.60, 1.73]
+Oddity / low activity               4.22 (0.98)           [4.15, 4.30]        2.17 (1.10)           [2.08, 2.25]
+Oddity / high activity              4.35 (1.02)           [4.27, 4.42]        2.51 (1.14)           [2.43, 2.60]
+------------------------------------------------------------------------------------
+
+Interaction model on the MEDIATOR (c_expect)
+------------------------------------------------------------------------------------
+Term                     b       SE                 95% CI         t         p
+------------------------------------------------------------------------------------
+Constant            1.5179    .0347       [1.4499, 1.5858]   43.7888    < .001 ***
+oddity              2.7039    .0512       [2.6034, 2.8043]   52.7718    < .001 ***
+noise              -0.1101    .0474     [-0.2030, -0.0172]   -2.3244      .020 *
+oddity_x_noise      0.2336    .0723       [0.0920, 0.3753]    3.2335      .001 **
+------------------------------------------------------------------------------------
+R-squared = .6947   n = 2688   [HC4]
+
+Interaction model on the OUTCOME  (c_discom)
+------------------------------------------------------------------------------------
+Term                     b       SE                 95% CI         t         p
+------------------------------------------------------------------------------------
+Constant            1.4747    .0321       [1.4117, 1.5377]   45.8942    < .001 ***
+oddity              0.6905    .0532       [0.5862, 0.7947]   12.9888    < .001 ***
+noise               0.1875    .0469       [0.0955, 0.2795]    3.9977    < .001 ***
+oddity_x_noise      0.1622    .0770       [0.0113, 0.3131]    2.1077      .035 *
+------------------------------------------------------------------------------------
+R-squared = .1450   n = 2688   [HC4]
+
+Simple effect of activity, by oddity condition
+------------------------------------------------------------------------------------
+  on c_expect    no oddity -0.1101   oddity present 0.1235
+  on c_discom    no oddity 0.1875   oddity present 0.3497
+------------------------------------------------------------------------------------
+
+  *** The two simple effects on the mediator have OPPOSITE SIGNS and
+      the interaction is significant. An additive model averages them
+      toward zero and reports activity as inert on the mediator. That
+      conclusion is an artifact of omitting this interaction.
+      recreate3.md currently makes exactly that claim.
+
+====================================================================================
+5. SENSITIVITY - how much confounding would erase c'?
+====================================================================================
+
+c' conditions on the mediator, which is measured after treatment. If any
+unmeasured variable causes both unexpectedness and discomfort, the two
+equations have correlated errors and both b and c' are biased.
+
+Let rho = Corr(error in the M model, error in the Y model). Under the
+linear model the bias-corrected paths are
+
+    b(rho)  = b_hat  - k(rho)
+    c'(rho) = c'_hat + a * k(rho)      where k(rho) = rho/sqrt(1-rho^2) * s2/s1
+
+with s1, s2 the residual SDs of the two models. rho = 0 recovers the
+reported estimates. This is the Imai-Keele-Yamamoto correlated-error
+idea; medsens() automates a refined version of it.
+
+s1 = 0.9381   s2 = 0.9204   s2/s1 = 0.9811
+
+     rho       b(rho)      c'(rho)      ab(rho)    c' sign
+------------------------------------------------------------------------------------
+   -0.40       0.8402      -1.5984       2.3699   negative
+   -0.35       0.7786      -1.4246       2.1962   negative
+   -0.30       0.7206      -1.2609       2.0325   negative
+   -0.25       0.6653      -1.1051       1.8767   negative
+   -0.20       0.6123      -0.9555       1.7271   negative
+   -0.15       0.5609      -0.8105       1.5820   negative
+   -0.10       0.5106      -0.6687       1.4403   negative
+   -0.05       0.4611      -0.5292       1.3007   negative
+    0.00       0.4120      -0.3906       1.1622   negative   <- reported
+    0.05       0.3629      -0.2521       1.0237   negative
+    0.10       0.3134      -0.1125       0.8841   negative
+    0.15       0.2632       0.0292       0.7424   POSITIVE
+    0.20       0.2118       0.1743       0.5973   POSITIVE
+    0.25       0.1587       0.3239       0.4477   POSITIVE
+    0.30       0.1035       0.4797       0.2919   POSITIVE
+    0.35       0.0455       0.6433       0.1282   POSITIVE
+    0.40      -0.0161       0.8171      -0.0455   POSITIVE
+------------------------------------------------------------------------------------
+
+Tipping points
+  c' reaches zero at rho = 0.1398
+  ab reaches zero at rho = 0.3872
+
+Read these as robustness, not probability. The larger the tipping point,
+the more confounding it would take to explain the result away. Compare
+the two: whichever is smaller is the more fragile claim.
+
+By c_propen
+------------------------------------------------------------------------------------
+Group                  a         b         c'      rho(c'=0)      rho(ab=0)
+------------------------------------------------------------------------------------
+Adventurous       2.7699    0.3478    -0.3312         0.1272         0.3494
+Cautious          2.8766    0.4639    -0.4095         0.1423         0.4242
+------------------------------------------------------------------------------------
+
+====================================================================================
+6. PROPENSITY - a weak, falsifiable probe of the curiosity story
+====================================================================================
+
+The curiosity reading makes a directional prediction. If oddity without
+unexpectedness reads as interesting rather than threatening, then people
+who describe themselves as adventurous should show a STRONGER (more
+negative) direct effect than cautious ones.
+
+This is not a test of curiosity. Propensity is a self-reported travel
+disposition, not a curiosity measure, and a null result is equally
+consistent with the curiosity story being right and propensity being
+the wrong proxy. It is included because the prediction is falsifiable
+in one direction: a REVERSED result would count against the reading.
+
+Outcome model saturated in propensity
+------------------------------------------------------------------------------------
+Term                     b       SE                 95% CI         t         p
+------------------------------------------------------------------------------------
+Constant            0.8565    .0487       [0.7611, 0.9520]   17.5957    < .001 ***
+oddity             -0.3312    .0806     [-0.4892, -0.1731]   -4.1091    < .001 ***
+expect              0.3478    .0259       [0.2970, 0.3985]   13.4441    < .001 ***
+noise               0.1884    .0471       [0.0961, 0.2808]    4.0017    < .001 ***
+propen             -0.0264    .0716      [-0.1669, 0.1140]   -0.3690      .712
+oddity_x_P         -0.0783    .1203      [-0.3143, 0.1577]   -0.6507      .515
+expect_x_P          0.1162    .0372       [0.0433, 0.1890]    3.1264      .002 **
+noise_x_P           0.1662    .0695       [0.0298, 0.3025]    2.3901      .017 *
+------------------------------------------------------------------------------------
+R-squared = .3059   n = 2688   [HC4]
+
+Every term is interacted with propensity, so the conditional effects
+below reproduce h3_Propensity_split.R exactly.
+
+Path                    Adventurous     Cautious     difference          p
+------------------------------------------------------------------------------------
+c' direct effect            -0.3312      -0.4095        -0.0783       .515
+b unexpect -> discom         0.3478       0.4639         0.1162       .002 **
+activity -> discom           0.1884       0.3546         0.1662       .017 *
+------------------------------------------------------------------------------------
+
+Verdict on the curiosity prediction
+------------------------------------------------------------------------------------
+  Predicted:  c'(Adventurous) more negative than c'(Cautious)
+  Observed:   Adventurous = -0.3312   vs   Cautious = -0.4095
+  The difference is not significant, so propensity provides NO support
+  for the curiosity reading. It does not refute it either - propensity
+  is a poor proxy, and this test had no power to speak of.
+  Note the point estimates also run the WRONG way, which is mildly
+  discouraging for the reading even though it is not significant.
+
+  Whatever happens to c', note whether the b path is moderated: that is
+  a separate and better-powered finding about who converts unexpectedness
+  into discomfort, and it does not depend on the curiosity story at all.
+
+====================================================================================
+7. CLUSTERING - c' with participants resampled, not trials
+====================================================================================
+
+Each participant contributed 32 trials, so the 2,688 rows are not 2,688
+independent observations. HC4 corrects for heteroscedasticity, not for
+nesting. Resample participants instead and see what happens to c'.
+
+84 participants, 32 trials each on average
+
+Method                           c'         SE                   95% CI    width
+------------------------------------------------------------------------------------
+HC4 (analytic)              -0.3906      .0612       [-0.5106, -0.2706]   0.2400
+row bootstrap               -0.3906      .0612       [-0.5092, -0.2686]   0.2406
+CLUSTER bootstrap           -0.3906      .0713       [-0.5358, -0.2550]   0.2809
+------------------------------------------------------------------------------------
+With participants resampled, c' still excludes zero.
+Cluster interval is 1.17x the width of the row interval.
+
+====================================================================================
+8. WHAT THIS DOES AND DOES NOT ESTABLISH
+====================================================================================
+
+Established, if the sections above came back clean:
+  - c' is estimated from real overlapping data, not extrapolated.
+  - The negative sign reappears within unexpectedness strata, with no
+    mediation model and no linearity assumption.
+  - It is not an artifact of treating an ordinal mediator as continuous.
+
+NOT established:
+  - Curiosity. There is no curiosity measure in this dataset. Several
+    other mechanisms predict the same negative sign: the odd element
+    making an otherwise ambiguous scene legible, a contrast effect
+    against the unexpectedness rating just given, or scale anchoring.
+  - Causality. c' conditions on a post-treatment variable, so it is only
+    causal under an assumption section 5 shows to be fragile.
+
+Suggested wording for the thesis:
+  Report the negative direct effect as a robust empirical pattern.
+  Offer curiosity as an interpretation, explicitly flagged as untested,
+  and cite the sensitivity tipping point so the reader can see how much
+  unmeasured confounding the claim tolerates. Do not use partial or full
+  mediation language, and do not compute a proportion mediated.
+
+Stratified direct effect (machine readable)
+  expect_level n_normal n_odd      diff       se    ci_lo    ci_hi          p
+1            1      950    40 -0.099842 0.112316 -0.32025  0.12056 3.7425e-01
+2            2      266    86 -0.393886 0.098993 -0.58858 -0.19919 8.4213e-05
+3            3       41    39 -0.037845 0.207697 -0.45142  0.37573 8.5590e-01
+4            4       74   467 -0.429766 0.128523 -0.68223 -0.17730 8.8369e-04
+5            5       13   712 -0.737780 0.258997 -1.24626 -0.22930 4.5160e-03
+  usable
+1   TRUE
+2   TRUE
+3   TRUE
+4   TRUE
+5   TRUE
+

@@ -1,0 +1,112 @@
+
+==============================================================================
+H3 - Unexpectedness mediates the effect of oddity on discomfort
+Simple mediation (PROCESS Model 4 equivalent), base R
+==============================================================================
+
+Data      ../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv
+Rows      2688 read, 2688 used, 0 dropped for missing data
+Model     Y = c_discom   X = c_oddity   M = c_expect   covariate = c_noise
+Inference HC4 standard errors; 10000 bootstrap samples; 95% CI; seed 20260727
+
+Design check
+  c_oddity   n(0) = 1344   n(1) = 1344
+  c_noise    n(0) = 1344   n(1) = 1344
+  c_expect   M = 2.8731, SD = 1.6939
+  c_discom   M = 1.9542, SD = 1.0781
+
+==============================================================================
+THE PATHS
+==============================================================================
+
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 2.8207    .0362       [2.7497, 2.8916]
+b  - unexpectedness -> discomfort             0.4120    .0188       [0.3751, 0.4490]
+c  - total effect of oddity                   0.7716    .0385       [0.6961, 0.8471]
+c' - direct effect of oddity                 -0.3906    .0612     [-0.5106, -0.2706]
+ab - indirect effect                          1.1622    .0569       [1.0510, 1.2746]
+------------------------------------------------------------------------------
+ab - indirect, partially standardised         1.0780    .0496       [0.9810, 1.1761]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error; SE for ab is the bootstrap SE.
+CI for a, b, c and c' is the t-based 95% interval; CI for ab is the percentile bootstrap interval.
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(2685) = 77.9417, p < .001
+  b   t(2684) = 21.8756, p < .001
+  c   t(2685) = 20.0396, p < .001
+  c'  t(2684) = -6.3821, p < .001
+
+Partially standardised effects (divided by SD of c_discom)
+------------------------------------------------------------------------------
+  c_ps   = 0.7157
+  c'_ps  = -0.3623
+  ab_ps  = 1.0780   BootSE = .0496   95% CI [0.9810, 1.1761]
+
+  X is dichotomous, so the partially standardised indirect effect is the
+  appropriate effect size; the completely standardised form is not reported.
+
+==============================================================================
+COMPONENT MODELS
+==============================================================================
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.4594    .0305       [1.3996, 1.5193]       -   47.8442    < .001
+c_oddity          2.8207    .0362       [2.7497, 2.8916]     .83   77.9417    < .001
+c_noise           0.0067    .0362      [-0.0643, 0.0777]     .00    0.1850      .853
+------------------------------------------------------------------------------
+R-squared = .6935   F(2, 2685) = 3045.8223, p < .001   [HC4 Wald]   n = 2688
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.8328    .0361       [0.7621, 0.9036]       -   23.0845    < .001
+c_oddity         -0.3906    .0612     [-0.5106, -0.2706]    -.18   -6.3821    < .001
+c_expect          0.4120    .0188       [0.3751, 0.4490]     .65   21.8756    < .001
+c_noise           0.2658    .0355       [0.1962, 0.3355]     .12    7.4853    < .001
+------------------------------------------------------------------------------
+R-squared = .2721   F(3, 2684) = 315.1988, p < .001   [HC4 Wald]   n = 2688
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.4342    .0298       [1.3757, 1.4926]       -   48.1297    < .001
+c_oddity          0.7716    .0385       [0.6961, 0.8471]     .36   20.0396    < .001
+c_noise           0.2686    .0385       [0.1931, 0.3441]     .12    6.9762    < .001
+------------------------------------------------------------------------------
+R-squared = .1436   F(2, 2685) = 225.1029, p < .001   [HC4 Wald]   n = 2688
+
+==============================================================================
+READING THE RESULT
+==============================================================================
+
+  H3 is SUPPORTED - the bootstrap CI for ab excludes zero.
+  Direct and indirect paths carry opposite signs and the direct effect is
+  significant: this is INCONSISTENT MEDIATION (suppression). Do not use
+  partial/full mediation language, and do not compute a proportion
+  mediated (ab / c = 1.5063 is uninterpretable under sign reversal).
+  Oddity moves unexpectedness by 2.8207 points, or 1.6652 SD of c_expect.
+  The covariate c_noise: b = 0.2658 (p < .001) on c_discom, b = 0.0067 (p .853) on c_expect.
+
+              path                                   label   effect       se
+1                a                oddity -> unexpectedness  2.82068 0.036190
+2                b            unexpectedness -> discomfort  0.41203 0.018835
+3                c                  total effect of oddity  0.77158 0.038503
+4          c_prime                 direct effect of oddity -0.39062 0.061206
+5               ab                         indirect effect  1.16220 0.056946
+6 ab_partially_std indirect effect, partially standardised  1.07796 0.049553
+     ci_lo    ci_hi
+1  2.74972  2.89165
+2  0.37509  0.44896
+3  0.69608  0.84708
+4 -0.51064 -0.27061
+5  1.05104  1.27461
+6  0.98095  1.17614
+

@@ -1,0 +1,33 @@
+
+Participant timing summary - ../data/timer.csv 
+------------------------------------------------------------ 
+
+N total: 84 
+
+Gender
+  Female    45  (53.6%)
+  Male      39  (46.4%)
+
+Age (years)
+  Mean     40.87
+  SD       12.86
+  Median   39.00
+  Q1       31.00
+  Q3       50.00
+  IQR      19.00   (31 - 50)
+  Range       18 - 69
+
+Time to complete the experiment (seconds)
+  Mean     335.67   (5m 36s)
+  SD       130.93   (2m 11s)
+  Median   310.09   (5m 10s)
+  Q1       248.07   (4m 08s)
+  Q3       384.88   (6m 25s)
+  IQR      136.81   (2m 17s)
+  Low      130.65   (2m 11s)
+  High     918.92   (15m 19s)
+
+       measure  n    mean     sd    min    max     q1     q3    iqr
+1          age 84  40.869  12.86  18.00  69.00  31.00  50.00  19.00
+2 duration_sec 84 335.667 130.93 130.65 918.92 248.07 384.88 136.81
+

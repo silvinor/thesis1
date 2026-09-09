@@ -1,0 +1,230 @@
+
+==============================================================================
+H3 - Unexpectedness mediates the effect of oddity on discomfort
+Simple mediation (PROCESS Model 4 equivalent), split by c_propen
+==============================================================================
+
+Data      ../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv
+Rows      2688 read, 2688 complete, 0 dropped for missing data
+Model     Y = c_discom   X = c_oddity   M = c_expect   covariate = c_noise
+Split     c_propen: 0 = Adventurous,  1 = Cautious
+Inference HC4 standard errors; 10000 bootstrap samples; 95% CI; seed 20260727 per group
+
+Group sizes
+  Adventurous    c_propen = 0   n = 1408
+  Cautious       c_propen = 1   n = 1280
+
+
+==============================================================================
+GROUP: ADVENTUROUS   (c_propen = 0)   n = 1408
+==============================================================================
+
+Design check
+  c_oddity   n(0) =  704   n(1) =  704
+  c_noise    n(0) =  704   n(1) =  704
+  c_expect   M = 2.8295, SD = 1.6783
+  c_discom   M = 1.7692, SD = 0.9989
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 2.7699    .0505       [2.6708, 2.8690]
+b  - unexpectedness -> discomfort             0.3478    .0259       [0.2970, 0.3985]
+c  - total effect of oddity                   0.6321    .0503       [0.5335, 0.7307]
+c' - direct effect of oddity                 -0.3312    .0806     [-0.4893, -0.1730]
+ab - indirect effect                          0.9633    .0747       [0.8168, 1.1144]
+------------------------------------------------------------------------------
+ab - indirect, partially standardised         0.9643    .0683       [0.8302, 1.1000]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error; SE for ab is the bootstrap SE.
+CI for a, b, c and c' is the t-based 95% interval; CI for ab is the percentile bootstrap interval.
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(1405) = 54.8320, p < .001
+  b   t(1404) = 13.4407, p < .001
+  c   t(1405) = 12.5770, p < .001
+  c'  t(1404) = -4.1079, p < .001
+
+Partially standardised effects (divided by SD of c_discom)
+------------------------------------------------------------------------------
+  c_ps   = 0.6328
+  c'_ps  = -0.3315
+  ab_ps  = 0.9643   BootSE = .0683   95% CI [0.8302, 1.1000]
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.4276    .0412       [1.3468, 1.5083]       -   34.6672    < .001
+c_oddity          2.7699    .0505       [2.6708, 2.8690]     .83   54.8320    < .001
+c_noise           0.0341    .0505      [-0.0650, 0.1332]     .01    0.6749      .500
+------------------------------------------------------------------------------
+R-squared = .6816   F(2, 1405) = 1503.3375, p < .001   [HC4 Wald]   n = 1408
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.8565    .0487       [0.7610, 0.9520]       -   17.5931    < .001
+c_oddity         -0.3312    .0806     [-0.4893, -0.1730]    -.17   -4.1079    < .001
+c_expect          0.3478    .0259       [0.2970, 0.3985]     .58   13.4407    < .001
+c_noise           0.1884    .0471       [0.0961, 0.2808]     .09    4.0014    < .001
+------------------------------------------------------------------------------
+R-squared = .2189   F(3, 1404) = 109.7961, p < .001   [HC4 Wald]   n = 1408
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.3530    .0384       [1.2777, 1.4283]       -   35.2616    < .001
+c_oddity          0.6321    .0503       [0.5335, 0.7307]     .32   12.5770    < .001
+c_noise           0.2003    .0503       [0.1017, 0.2989]     .10    3.9851    < .001
+------------------------------------------------------------------------------
+R-squared = .1102   F(2, 1405) = 84.8027, p < .001   [HC4 Wald]   n = 1408
+
+Reading the result
+------------------------------------------------------------------------------
+  Within Adventurous, H3 is SUPPORTED - the bootstrap CI for ab excludes zero.
+  Direct and indirect paths carry opposite signs and the direct effect is
+  significant: this is INCONSISTENT MEDIATION (suppression). Do not use
+  partial/full mediation language, and do not compute a proportion
+  mediated (ab / c = 1.5239 is uninterpretable under sign reversal).
+  Oddity moves unexpectedness by 2.7699 points, or 1.6504 SD of c_expect.
+  The covariate c_noise: b = 0.1884 (p < .001) on c_discom, b = 0.0341 (p .500) on c_expect.
+
+
+==============================================================================
+GROUP: CAUTIOUS   (c_propen = 1)   n = 1280
+==============================================================================
+
+Design check
+  c_oddity   n(0) =  640   n(1) =  640
+  c_noise    n(0) =  640   n(1) =  640
+  c_expect   M = 2.9211, SD = 1.7103
+  c_discom   M = 2.1578, SD = 1.1248
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 2.8766    .0517       [2.7751, 2.9780]
+b  - unexpectedness -> discomfort             0.4639    .0267       [0.4116, 0.5162]
+c  - total effect of oddity                   0.9250    .0565       [0.8141, 1.0359]
+c' - direct effect of oddity                 -0.4095    .0894     [-0.5848, -0.2342]
+ab - indirect effect                          1.3345    .0821       [1.1749, 1.5006]
+------------------------------------------------------------------------------
+ab - indirect, partially standardised         1.1864    .0696       [1.0537, 1.3289]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error; SE for ab is the bootstrap SE.
+CI for a, b, c and c' is the t-based 95% interval; CI for ab is the percentile bootstrap interval.
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(1277) = 55.6209, p < .001
+  b   t(1276) = 17.4013, p < .001
+  c   t(1277) = 16.3590, p < .001
+  c'  t(1276) = -4.5830, p < .001
+
+Partially standardised effects (divided by SD of c_discom)
+------------------------------------------------------------------------------
+  c_ps   = 0.8224
+  c'_ps  = -0.3641
+  ab_ps  = 1.1864   BootSE = .0696   95% CI [1.0537, 1.3289]
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.4945    .0453       [1.4057, 1.5833]       -   33.0115    < .001
+c_oddity          2.8766    .0517       [2.7751, 2.9780]     .84   55.6209    < .001
+c_noise          -0.0234    .0517      [-0.1249, 0.0780]    -.01   -0.4532      .650
+------------------------------------------------------------------------------
+R-squared = .7078   F(2, 1277) = 1565.3680, p < .001   [HC4 Wald]   n = 1280
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.8301    .0525       [0.7270, 0.9331]       -   15.8029    < .001
+c_oddity         -0.4095    .0894     [-0.5848, -0.2342]    -.18   -4.5830    < .001
+c_expect          0.4639    .0267       [0.4116, 0.5162]     .71   17.4013    < .001
+c_noise           0.3546    .0512       [0.2543, 0.4550]     .16    6.9313    < .001
+------------------------------------------------------------------------------
+R-squared = .3380   F(3, 1276) = 233.6609, p < .001   [HC4 Wald]   n = 1280
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.5234    .0453       [1.4346, 1.6123]       -   33.6518    < .001
+c_oddity          0.9250    .0565       [0.8141, 1.0359]     .41   16.3590    < .001
+c_noise           0.3438    .0565       [0.2328, 0.4547]     .15    6.0793    < .001
+------------------------------------------------------------------------------
+R-squared = .1926   F(2, 1277) = 157.2061, p < .001   [HC4 Wald]   n = 1280
+
+Reading the result
+------------------------------------------------------------------------------
+  Within Cautious, H3 is SUPPORTED - the bootstrap CI for ab excludes zero.
+  Direct and indirect paths carry opposite signs and the direct effect is
+  significant: this is INCONSISTENT MEDIATION (suppression). Do not use
+  partial/full mediation language, and do not compute a proportion
+  mediated (ab / c = 1.4427 is uninterpretable under sign reversal).
+  Oddity moves unexpectedness by 2.8766 points, or 1.6820 SD of c_expect.
+  The covariate c_noise: b = 0.3546 (p < .001) on c_discom, b = -0.0234 (p .650) on c_expect.
+
+==============================================================================
+SIDE BY SIDE
+==============================================================================
+
+                                        Adventurous                           Cautious
+Path                                       n = 1408                           n = 1280
+------------------------------------------------------------------------------
+a                          2.7699  [2.6708, 2.8690]           2.8766  [2.7751, 2.9780]
+b                          0.3478  [0.2970, 0.3985]           0.4639  [0.4116, 0.5162]
+c total                    0.6321  [0.5335, 0.7307]           0.9250  [0.8141, 1.0359]
+c' direct               -0.3312  [-0.4893, -0.1730]        -0.4095  [-0.5848, -0.2342]
+ab indirect                0.9633  [0.8168, 1.1144]           1.3345  [1.1749, 1.5006]
+ab_ps                      0.9643  [0.8302, 1.1000]           1.1864  [1.0537, 1.3289]
+------------------------------------------------------------------------------
+M model R2                                    .6816                              .7078
+Y model R2                                    .2189                              .3380
+Total R2                                      .1102                              .1926
+------------------------------------------------------------------------------
+Groups were fitted independently. Differences between the columns are
+descriptive; this script does not test whether c_propen moderates any path.
+
+         group    n             path                                   label
+1  Adventurous 1408                a                oddity -> unexpectedness
+2  Adventurous 1408                b            unexpectedness -> discomfort
+3  Adventurous 1408                c                  total effect of oddity
+4  Adventurous 1408          c_prime                 direct effect of oddity
+5  Adventurous 1408               ab                         indirect effect
+6  Adventurous 1408 ab_partially_std indirect effect, partially standardised
+7     Cautious 1280                a                oddity -> unexpectedness
+8     Cautious 1280                b            unexpectedness -> discomfort
+9     Cautious 1280                c                  total effect of oddity
+10    Cautious 1280          c_prime                 direct effect of oddity
+11    Cautious 1280               ab                         indirect effect
+12    Cautious 1280 ab_partially_std indirect effect, partially standardised
+     effect       se    ci_lo    ci_hi
+1   2.76989 0.050516  2.67079  2.86898
+2   0.34777 0.025874  0.29701  0.39853
+3   0.63210 0.050259  0.53351  0.73069
+4  -0.33118 0.080621 -0.48933 -0.17303
+5   0.96328 0.074684  0.81680  1.11438
+6   0.96431 0.068288  0.83024  1.10002
+7   2.87656 0.051717  2.77510  2.97802
+8   0.46392 0.026660  0.41162  0.51622
+9   0.92500 0.056544  0.81407  1.03593
+10 -0.40949 0.089351 -0.58479 -0.23420
+11  1.33449 0.082144  1.17494  1.50059
+12  1.18644 0.069572  1.05367  1.32891
+

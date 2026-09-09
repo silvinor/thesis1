@@ -1,0 +1,180 @@
+
+==================================================================================
+H3 - Does gender moderate the mediation?
+Moderated mediation (PROCESS Model 59 equivalent), base R
+==================================================================================
+
+Data      ../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv
+Rows      2688 read, 2688 used, 0 dropped
+Model     Y = c_discom   X = c_oddity   M = c_expect   W = W_male   covariate = c_noise
+Moderator gender: "Female" = 0 (n = 1440),  "Male" = 1 (n = 1248)
+Inference HC4 standard errors; 10000 bootstrap samples; 95% CI; seed 20260727
+
+==================================================================================
+1. DOES GENDER MOVE EACH PATH?  (the three interaction terms)
+==================================================================================
+
+Each row asks whether one path differs between "Female" and "Male".
+These are the only coefficients in the two models that bear on moderation.
+
+Moderated path                         Difference       SE                 95% CI         p
+----------------------------------------------------------------------------------
+a3  c_oddity:W_male (X -> M)             -0.0003    .0724      [-0.1422, 0.1416]      .996
+b2  c_expect:W_male (M -> Y)             -0.0098    .0377      [-0.0837, 0.0641]      .794
+c3  c_oddity:W_male (X -> Y direct)      -0.1500    .1225      [-0.3902, 0.0901]      .221
+----------------------------------------------------------------------------------
+ct3 c_oddity:W_male (X -> Y total)       -0.1779    .0767     [-0.3283, -0.0275]      .020
+----------------------------------------------------------------------------------
+Difference is Male minus Female. SEs are HC4.
+ct3 comes from the separate total effect model and is NOT part of
+Model 59 proper; a3, b2 and c3 are. It is reported because the total
+effect can be moderated even when neither component is.
+
+==================================================================================
+2. CONDITIONAL EFFECTS AT EACH LEVEL OF GENDER
+==================================================================================
+
+gender               a         b direct c'  indirect   total c             95% CI (ind)
+----------------------------------------------------------------------------------
+Female          2.8208    0.4144   -0.3149    1.1691    0.8542         [1.0172, 1.3261]
+Male            2.8205    0.4046   -0.4649    1.1412    0.6763         [0.9859, 1.3035]
+----------------------------------------------------------------------------------
+a, b and c' are simple effects recovered from the single Model 59 fit;
+total c comes from the separate total effect model. The CI shown is the
+percentile bootstrap interval for the indirect effect.
+Both CIs excluding zero means mediation holds in BOTH groups - it does
+NOT mean the groups differ. That is section 3.
+
+==================================================================================
+3. THE TEST:  DOES THE INDIRECT EFFECT DIFFER BY GENDER?
+==================================================================================
+
+Contrast                                    Estimate    BootSE            95% CI (boot)
+----------------------------------------------------------------------------------
+indirect: focal - ref                        -0.0278     .1136        [-0.2527, 0.1932]
+indirect: focal - ref, part. std.            -0.0258     .1054        [-0.2353, 0.1799]
+direct: focal - ref  (= c3)                  -0.1500     .1211        [-0.3837, 0.0833]
+total: focal - ref  (= ct3)                  -0.1779     .0761       [-0.3280, -0.0303]
+----------------------------------------------------------------------------------
+Partially standardised uses the full-sample SD of c_discom (1.0781).
+ct3 also has an HC4 test in section 1: p .020.
+
+Decomposition check
+----------------------------------------------------------------------------------
+  total contrast   -0.177885
+  direct contrast  -0.150044
+  indirect contrast -0.027840
+  direct + indirect -0.177885   (residual 0.00000000)
+
+Model 59 moderates both a and b with the same W, so the indirect effect
+is quadratic in W and no single index of moderated mediation exists.
+W is dichotomous, so the contrast above is the equivalent test.
+
+==================================================================================
+4. VERDICT
+==================================================================================
+
+  Moderated mediation is NOT SUPPORTED - the bootstrap CI for the
+  difference between conditional indirect effects includes zero.
+  The TOTAL effect of c_oddity DOES differ by gender - ct3 CI excludes zero.
+
+  Read this carefully. The TOTAL effect is moderated, but neither of its
+  two components reaches significance on its own. That is not a
+  contradiction: the total contrast is the sum of the direct and
+  indirect contrasts, and a sum can be estimated more precisely than
+  either part. It is also the pattern a marginal result produces when
+  several tests are run without correction.
+  Report the total effect difference as SUGGESTIVE, locate it in the
+  direct pathway descriptively, and do not claim the mediation itself
+  differs by gender.
+
+  Pooled reference (h3_full_set.R): indirect = 1.1622, total = 0.7716.
+  Here, indirect: Female = 1.1691, Male = 1.1412.
+  Here, total:    Female = 0.8542, Male = 0.6763.
+
+  Scale context for the total effect gap
+    c_discom scale 1 to 4 (span 3), observed 1 to 4; SD = 1.0781
+    Female   total effect 0.8542  = 28.47% of span = 0.792 SD
+    Male     total effect 0.6763  = 22.54% of span = 0.627 SD
+             gap          0.1779  = 5.93% of span = 0.165 SD
+
+  Caveat: gender is measured, not manipulated. Even a significant
+  contrast would be confounded with anything else differing between groups.
+
+==================================================================================
+5. COMPONENT MODELS
+==================================================================================
+
+Mediator model:      c_expect ~ c_oddity + W_male + c_oddity:W_male + c_noise
+----------------------------------------------------------------------------------
+Term                         b       SE                 95% CI         t         p
+----------------------------------------------------------------------------------
+Constant                1.4925    .0397       [1.4146, 1.5704]   37.5596    < .001
+c_oddity                2.8208    .0502       [2.7223, 2.9193]   56.1546    < .001
+W_male                 -0.0712    .0471      [-0.1635, 0.0212]   -1.5108      .131
+c_oddity:W_male        -0.0003    .0724      [-0.1422, 0.1416]   -0.0044      .996
+c_noise                 0.0067    .0362      [-0.0642, 0.0776]    0.1851      .853
+----------------------------------------------------------------------------------
+R-squared = .6939   F(4, 2683) = 1546.4328, p < .001   [HC4 Wald]   n = 2688
+
+Outcome model:       c_discom ~ c_oddity + W_male + c_oddity:W_male + c_expect + c_expect:W_male + c_noise
+----------------------------------------------------------------------------------
+Term                         b       SE                 95% CI         t         p
+----------------------------------------------------------------------------------
+Constant                0.8332    .0489       [0.7372, 0.9291]   17.0218    < .001
+c_oddity               -0.3149    .0866     [-0.4846, -0.1452]   -3.6378    < .001
+W_male                  0.0055    .0647      [-0.1214, 0.1323]    0.0843      .933
+c_oddity:W_male        -0.1500    .1225      [-0.3902, 0.0901]   -1.2252      .221
+c_expect                0.4144    .0264       [0.3627, 0.4661]   15.7195    < .001
+c_expect:W_male        -0.0098    .0377      [-0.0837, 0.0641]   -0.2607      .794
+c_noise                 0.2660    .0355       [0.1965, 0.3356]    7.4969    < .001
+----------------------------------------------------------------------------------
+R-squared = .2758   F(6, 2681) = 160.7199, p < .001   [HC4 Wald]   n = 2688
+
+Total effect model:  c_discom ~ c_oddity + W_male + c_oddity:W_male + c_noise
+----------------------------------------------------------------------------------
+Term                         b       SE                 95% CI         t         p
+----------------------------------------------------------------------------------
+Constant                1.4518    .0378       [1.3777, 1.5259]   38.4306    < .001
+c_oddity                0.8542    .0537       [0.7489, 0.9595]   15.9036    < .001
+W_male                 -0.0380    .0468      [-0.1298, 0.0538]   -0.8124      .417
+c_oddity:W_male        -0.1779    .0767     [-0.3283, -0.0275]   -2.3188      .020
+c_noise                 0.2686    .0384       [0.1933, 0.3439]    6.9946    < .001
+----------------------------------------------------------------------------------
+R-squared = .1488   F(4, 2683) = 116.0312, p < .001   [HC4 Wald]   n = 2688
+
+               quantity       level    estimate       se     ci_lo     ci_hi
+1                 a_ref      Female  2.82083333       NA        NA        NA
+2               a_focal        Male  2.82051282       NA        NA        NA
+3                 b_ref      Female  0.41443839       NA        NA        NA
+4               b_focal        Male  0.40461486       NA        NA        NA
+5            direct_ref      Female -0.31489497 0.086562 -0.484630 -0.145160
+6          direct_focal        Male -0.46493934       NA        NA        NA
+7          indirect_ref      Female  1.16906164 0.079061  1.017173  1.326100
+8        indirect_focal        Male  1.14122139 0.081548  0.985854  1.303516
+9             total_ref      Female  0.85416667 0.053709  0.748851  0.959482
+10          total_focal        Male  0.67628205       NA        NA        NA
+11        a3_moderation focal - ref -0.00032051 0.072356 -0.142199  0.141558
+12        b2_moderation focal - ref -0.00982354 0.037684 -0.083716  0.064069
+13        c3_moderation focal - ref -0.15004437 0.122464 -0.390177  0.090088
+14 ct3_moderation_total focal - ref -0.17788462 0.076714 -0.328310 -0.027460
+15    indirect_contrast focal - ref -0.02784024 0.113619 -0.252671  0.193231
+16 indirect_contrast_ps focal - ref -0.02582231 0.105410 -0.235349  0.179921
+            p
+1          NA
+2          NA
+3          NA
+4          NA
+5  2.8017e-04
+6          NA
+7          NA
+8          NA
+9  1.7103e-54
+10         NA
+11 9.9647e-01
+12 7.9436e-01
+13 2.2060e-01
+14 2.0481e-02
+15         NA
+16         NA
+

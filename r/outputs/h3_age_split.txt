@@ -1,0 +1,625 @@
+
+==============================================================================
+H3 - Unexpectedness mediates the effect of oddity on discomfort
+Simple mediation (PROCESS Model 4 equivalent), split by age decade
+==============================================================================
+
+Data      ../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv
+Rows      2688 read, 2688 used, 0 dropped
+Model     Y = c_discom   X = c_oddity   M = c_expect   covariate = c_noise
+Bins      11-20, 21-30, 31-40, 41-50, 51-60, 61-70 from breaks 10/20/30/40/50/60/70
+Age       observed 18 to 69
+Bootstrap 10000 samples, 95% CI, seed 20260727 per group; row AND cluster
+Inference HC4 standard errors (heteroscedasticity only)
+
+Group sizes - ROWS ARE TRIALS, NOT PEOPLE
+------------------------------------------------------------------------------
+  Decade         rows   participants     status
+------------------------------------------------------------------------------
+  11-20            64              2   UNUSABLE
+  21-30           576             18       WEAK
+  31-40           800             25         OK
+  41-50           608             19       WEAK
+  51-60           384             12       WEAK
+  61-70           256              8       WEAK
+------------------------------------------------------------------------------
+  Each participant contributed 32 trials, so a decade with a large row
+  count can still rest on very few people. See the header.
+
+
+==============================================================================
+AGE 11-20   n = 64 rows from 2 participants   [UNUSABLE]
+==============================================================================
+
+  *** 2 participants. Nothing below supports inference. ***
+  The model is reported for completeness only. Row-bootstrap intervals
+  here describe within-person consistency, not sampling error, and the
+  cluster bootstrap has too few clusters to resample meaningfully.
+
+Design check
+  c_oddity   n(0) =   32   n(1) =   32
+  c_noise    n(0) =   32   n(1) =   32
+  c_expect   M = 2.7969, SD = 1.7833
+  c_discom   M = 2.2188, SD = 1.0611
+  clusters   2 participants; 3 distinct cluster resamples
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 3.2188    .1879       [2.8431, 3.5944]
+b  - unexpectedness -> discomfort             0.4381    .3586      [-0.2792, 1.1554]
+c  - total effect of oddity                   1.3125    .1981       [0.9163, 1.7087]
+c' - direct effect of oddity                 -0.0976   1.2686      [-2.6353, 2.4401]
+------------------------------------------------------------------------------
+ab - indirect  (row bootstrap)                1.4101    .6530       [0.5391, 2.9743]
+ab - indirect  (CLUSTER bootstrap)            1.4101    .4412       [1.2532, 2.3711]
+ab - partially standardised (row)             1.3289    .5972       [0.5393, 2.7301]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error, which corrects for
+heteroscedasticity but NOT for the 32-trials-per-participant nesting.
+Cluster interval is 0.46x the width of the row interval (1.1179 vs 2.4352).
+Narrower is NOT better here - with this few clusters the cluster
+bootstrap is degenerate, so its quantiles mean very little.
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(61) = 17.1316, p < .001
+  b   t(60) = 1.2218, p .227
+  c   t(61) = 6.6245, p < .001
+  c'  t(60) = -0.0769, p .939
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.2344    .1420       [0.9504, 1.5183]       -    8.6920    < .001
+c_oddity          3.2188    .1879       [2.8431, 3.5944]     .91   17.1316    < .001
+c_noise          -0.0938    .1879      [-0.4694, 0.2819]    -.03   -0.4990      .620
+------------------------------------------------------------------------------
+R-squared = .8280   F(2, 61) = 237.7071, p < .001   [HC4 Wald]   n = 64
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.7405    .4027      [-0.0651, 1.5461]       -    1.8386      .071
+c_oddity         -0.0976   1.2686      [-2.6353, 2.4401]    -.05   -0.0769      .939
+c_expect          0.4381    .3586      [-0.2792, 1.1554]     .74    1.2218      .227
+c_noise           0.6036    .1923       [0.2190, 0.9882]     .29    3.1391      .003
+------------------------------------------------------------------------------
+R-squared = .5531   F(3, 60) = 30.5154, p < .001   [HC4 Wald]   n = 64
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.2812    .1417       [0.9978, 1.5647]       -    9.0391    < .001
+c_oddity          1.3125    .1981       [0.9163, 1.7087]     .62    6.6245    < .001
+c_noise           0.5625    .1981       [0.1663, 0.9587]     .27    2.8391      .006
+------------------------------------------------------------------------------
+R-squared = .4599   F(2, 61) = 26.3505, p < .001   [HC4 Wald]   n = 64
+
+Reading the result
+------------------------------------------------------------------------------
+  No verdict - too few participants.
+  Oddity moves unexpectedness by 3.2188 points, or 1.8049 SD of c_expect.
+  The covariate c_noise: b = 0.6036 (p .003) on c_discom, b = -0.0938 (p .620) on c_expect.
+
+
+==============================================================================
+AGE 21-30   n = 576 rows from 18 participants   [WEAK]
+==============================================================================
+
+  NOTE: 18 participants (< 20). Intervals are wide and the cluster
+  bootstrap is itself imprecise below roughly 30 clusters. Read the
+  point estimates as indicative only.
+
+Design check
+  c_oddity   n(0) =  288   n(1) =  288
+  c_noise    n(0) =  288   n(1) =  288
+  c_expect   M = 3.0243, SD = 1.6214
+  c_discom   M = 2.2587, SD = 1.1455
+  clusters   18 participants; many distinct cluster resamples
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 2.5625    .0828       [2.3998, 2.7252]
+b  - unexpectedness -> discomfort             0.4070    .0380       [0.3323, 0.4816]
+c  - total effect of oddity                   0.8368    .0880       [0.6639, 1.0097]
+c' - direct effect of oddity                 -0.2060    .1168      [-0.4354, 0.0234]
+------------------------------------------------------------------------------
+ab - indirect  (row bootstrap)                1.0428    .1033       [0.8430, 1.2539]
+ab - indirect  (CLUSTER bootstrap)            1.0428    .1258       [0.7976, 1.2887]
+ab - partially standardised (row)             0.9104    .0865       [0.7429, 1.0844]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error, which corrects for
+heteroscedasticity but NOT for the 32-trials-per-participant nesting.
+Cluster interval is 1.20x the width of the row interval (0.4911 vs 0.4109).
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(573) = 30.9399, p < .001
+  b   t(572) = 10.7057, p < .001
+  c   t(573) = 9.5071, p < .001
+  c'  t(572) = -1.7639, p .078
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.7292    .0695       [1.5927, 1.8656]       -   24.8858    < .001
+c_oddity          2.5625    .0828       [2.3998, 2.7252]     .79   30.9399    < .001
+c_noise           0.0278    .0828      [-0.1349, 0.1904]     .01    0.3354      .737
+------------------------------------------------------------------------------
+R-squared = .6256   F(2, 573) = 478.6407, p < .001   [HC4 Wald]   n = 576
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.9786    .0863       [0.8091, 1.1481]       -   11.3420    < .001
+c_oddity         -0.2060    .1168      [-0.4354, 0.0234]    -.09   -1.7639      .078
+c_expect          0.4070    .0380       [0.3323, 0.4816]     .58   10.7057    < .001
+c_noise           0.3047    .0815       [0.1445, 0.4648]     .13    3.7371    < .001
+------------------------------------------------------------------------------
+R-squared = .2770   F(3, 572) = 74.2004, p < .001   [HC4 Wald]   n = 576
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.6823    .0682       [1.5484, 1.8162]       -   24.6753    < .001
+c_oddity          0.8368    .0880       [0.6639, 1.0097]     .37    9.5071    < .001
+c_noise           0.3160    .0880       [0.1431, 0.4889]     .14    3.5898    < .001
+------------------------------------------------------------------------------
+R-squared = .1527   F(2, 573) = 52.6474, p < .001   [HC4 Wald]   n = 576
+
+Reading the result
+------------------------------------------------------------------------------
+  Within age 21-30, H3 is SUPPORTED on the cluster bootstrap.
+  Oddity moves unexpectedness by 2.5625 points, or 1.5804 SD of c_expect.
+  The covariate c_noise: b = 0.3047 (p < .001) on c_discom, b = 0.0278 (p .737) on c_expect.
+
+
+==============================================================================
+AGE 31-40   n = 800 rows from 25 participants   [OK]
+==============================================================================
+
+Design check
+  c_oddity   n(0) =  400   n(1) =  400
+  c_noise    n(0) =  400   n(1) =  400
+  c_expect   M = 2.8337, SD = 1.7182
+  c_discom   M = 1.9587, SD = 1.0867
+  clusters   25 participants; many distinct cluster resamples
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 2.8475    .0680       [2.7140, 2.9810]
+b  - unexpectedness -> discomfort             0.4080    .0332       [0.3428, 0.4732]
+c  - total effect of oddity                   0.9225    .0691       [0.7868, 1.0582]
+c' - direct effect of oddity                 -0.2392    .1085     [-0.4523, -0.0262]
+------------------------------------------------------------------------------
+ab - indirect  (row bootstrap)                1.1617    .1011       [0.9675, 1.3658]
+ab - indirect  (CLUSTER bootstrap)            1.1617    .1322       [0.9168, 1.4370]
+ab - partially standardised (row)             1.0690    .0860       [0.9023, 1.2408]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error, which corrects for
+heteroscedasticity but NOT for the 32-trials-per-participant nesting.
+Cluster interval is 1.31x the width of the row interval (0.5202 vs 0.3983).
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(797) = 41.8761, p < .001
+  b   t(796) = 12.2788, p < .001
+  c   t(797) = 13.3410, p < .001
+  c'  t(796) = -2.2043, p .028
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.4262    .0619       [1.3047, 1.5478]       -   23.0393    < .001
+c_oddity          2.8475    .0680       [2.7140, 2.9810]     .83   41.8761    < .001
+c_noise          -0.0325    .0680      [-0.1660, 0.1010]    -.01   -0.4780      .633
+------------------------------------------------------------------------------
+R-squared = .6876   F(2, 797) = 891.2611, p < .001   [HC4 Wald]   n = 800
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.7969    .0636       [0.6720, 0.9217]       -   12.5277    < .001
+c_oddity         -0.2392    .1085     [-0.4523, -0.0262]    -.11   -2.2043      .028
+c_expect          0.4080    .0332       [0.3428, 0.4732]     .65   12.2788    < .001
+c_noise           0.2508    .0634       [0.1264, 0.3751]     .12    3.9572    < .001
+------------------------------------------------------------------------------
+R-squared = .3223   F(3, 796) = 114.2591, p < .001   [HC4 Wald]   n = 800
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.3787    .0546       [1.2715, 1.4860]       -   25.2419    < .001
+c_oddity          0.9225    .0691       [0.7868, 1.0582]     .42   13.3410    < .001
+c_noise           0.2375    .0691       [0.1018, 0.3732]     .11    3.4347    < .001
+------------------------------------------------------------------------------
+R-squared = .1923   F(2, 797) = 92.9295, p < .001   [HC4 Wald]   n = 800
+
+Reading the result
+------------------------------------------------------------------------------
+  Within age 31-40, H3 is SUPPORTED on the cluster bootstrap.
+  Direct and indirect paths carry opposite signs and the direct effect
+  is significant: INCONSISTENT MEDIATION. Do not use partial/full
+  mediation language and do not compute a proportion mediated.
+  Oddity moves unexpectedness by 2.8475 points, or 1.6572 SD of c_expect.
+  The covariate c_noise: b = 0.2508 (p < .001) on c_discom, b = -0.0325 (p .633) on c_expect.
+
+
+==============================================================================
+AGE 41-50   n = 608 rows from 19 participants   [WEAK]
+==============================================================================
+
+  NOTE: 19 participants (< 20). Intervals are wide and the cluster
+  bootstrap is itself imprecise below roughly 30 clusters. Read the
+  point estimates as indicative only.
+
+Design check
+  c_oddity   n(0) =  304   n(1) =  304
+  c_noise    n(0) =  304   n(1) =  304
+  c_expect   M = 2.7977, SD = 1.6844
+  c_discom   M = 1.8668, SD = 1.0523
+  clusters   19 participants; many distinct cluster resamples
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 2.7138    .0810       [2.5548, 2.8728]
+b  - unexpectedness -> discomfort             0.4539    .0357       [0.3838, 0.5239]
+c  - total effect of oddity                   0.6678    .0804       [0.5099, 0.8256]
+c' - direct effect of oddity                 -0.5639    .1155     [-0.7908, -0.3371]
+------------------------------------------------------------------------------
+ab - indirect  (row bootstrap)                1.2317    .1065       [1.0284, 1.4486]
+ab - indirect  (CLUSTER bootstrap)            1.2317    .1650       [0.9525, 1.6030]
+ab - partially standardised (row)             1.1704    .0911       [0.9975, 1.3568]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error, which corrects for
+heteroscedasticity but NOT for the 32-trials-per-participant nesting.
+Cluster interval is 1.55x the width of the row interval (0.6505 vs 0.4202).
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(605) = 33.5240, p < .001
+  b   t(604) = 12.7203, p < .001
+  c   t(605) = 8.3075, p < .001
+  c'  t(604) = -4.8823, p < .001
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.4326    .0627       [1.3095, 1.5556]       -   22.8622    < .001
+c_oddity          2.7138    .0810       [2.5548, 2.8728]     .81   33.5240    < .001
+c_noise           0.0164    .0810      [-0.1425, 0.1754]     .00    0.2032      .839
+------------------------------------------------------------------------------
+R-squared = .6501   F(2, 605) = 561.9611, p < .001   [HC4 Wald]   n = 608
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.7528    .0675       [0.6202, 0.8853]       -   11.1511    < .001
+c_oddity         -0.5639    .1155     [-0.7908, -0.3371]    -.27   -4.8823    < .001
+c_expect          0.4539    .0357       [0.3838, 0.5239]     .73   12.7203    < .001
+c_noise           0.2524    .0716       [0.1117, 0.3931]     .12    3.5239    < .001
+------------------------------------------------------------------------------
+R-squared = .3008   F(3, 604) = 82.9835, p < .001   [HC4 Wald]   n = 608
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.4030    .0637       [1.2778, 1.5281]       -   22.0151    < .001
+c_oddity          0.6678    .0804       [0.5099, 0.8256]     .32    8.3075    < .001
+c_noise           0.2599    .0804       [0.1020, 0.4177]     .12    3.2330      .001
+------------------------------------------------------------------------------
+R-squared = .1161   F(2, 605) = 39.3507, p < .001   [HC4 Wald]   n = 608
+
+Reading the result
+------------------------------------------------------------------------------
+  Within age 41-50, H3 is SUPPORTED on the cluster bootstrap.
+  Direct and indirect paths carry opposite signs and the direct effect
+  is significant: INCONSISTENT MEDIATION. Do not use partial/full
+  mediation language and do not compute a proportion mediated.
+  Oddity moves unexpectedness by 2.7138 points, or 1.6112 SD of c_expect.
+  The covariate c_noise: b = 0.2524 (p < .001) on c_discom, b = 0.0164 (p .839) on c_expect.
+
+
+==============================================================================
+AGE 51-60   n = 384 rows from 12 participants   [WEAK]
+==============================================================================
+
+  NOTE: 12 participants (< 20). Intervals are wide and the cluster
+  bootstrap is itself imprecise below roughly 30 clusters. Read the
+  point estimates as indicative only.
+
+Design check
+  c_oddity   n(0) =  192   n(1) =  192
+  c_noise    n(0) =  192   n(1) =  192
+  c_expect   M = 2.9167, SD = 1.6927
+  c_discom   M = 1.7474, SD = 0.9484
+  clusters   12 participants; 1,352,078 distinct cluster resamples
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 2.9688    .0828       [2.8060, 3.1315]
+b  - unexpectedness -> discomfort             0.3848    .0537       [0.2793, 0.4903]
+c  - total effect of oddity                   0.6198    .0908       [0.4413, 0.7983]
+c' - direct effect of oddity                 -0.5227    .1764     [-0.8695, -0.1759]
+------------------------------------------------------------------------------
+ab - indirect  (row bootstrap)                1.1425    .1662       [0.8324, 1.4879]
+ab - indirect  (CLUSTER bootstrap)            1.1425    .2635       [0.6894, 1.7054]
+ab - partially standardised (row)             1.2046    .1623       [0.8996, 1.5305]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error, which corrects for
+heteroscedasticity but NOT for the 32-trials-per-participant nesting.
+Cluster interval is 1.55x the width of the row interval (1.0160 vs 0.6555).
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(381) = 35.8566, p < .001
+  b   t(380) = 7.1716, p < .001
+  c   t(381) = 6.8280, p < .001
+  c'  t(380) = -2.9635, p .003
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.3958    .0664       [1.2652, 1.5265]       -   21.0105    < .001
+c_oddity          2.9688    .0828       [2.8060, 3.1315]     .88   35.8566    < .001
+c_noise           0.0729    .0828      [-0.0899, 0.2357]     .02    0.8807      .379
+------------------------------------------------------------------------------
+R-squared = .7715   F(2, 381) = 642.9068, p < .001   [HC4 Wald]   n = 384
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          0.7727    .0907       [0.5944, 0.9511]       -    8.5184    < .001
+c_oddity         -0.5227    .1764     [-0.8695, -0.1759]    -.28   -2.9635      .003
+c_expect          0.3848    .0537       [0.2793, 0.4903]     .69    7.1716    < .001
+c_noise           0.2271    .0849       [0.0601, 0.3941]     .12    2.6744      .008
+------------------------------------------------------------------------------
+R-squared = .2330   F(3, 380) = 35.3445, p < .001   [HC4 Wald]   n = 384
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.3099    .0687       [1.1749, 1.4449]       -   19.0797    < .001
+c_oddity          0.6198    .0908       [0.4413, 0.7983]     .33    6.8280    < .001
+c_noise           0.2552    .0908       [0.0767, 0.4337]     .13    2.8115      .005
+------------------------------------------------------------------------------
+R-squared = .1252   F(2, 381) = 27.5736, p < .001   [HC4 Wald]   n = 384
+
+Reading the result
+------------------------------------------------------------------------------
+  Within age 51-60, H3 is SUPPORTED on the cluster bootstrap.
+  Direct and indirect paths carry opposite signs and the direct effect
+  is significant: INCONSISTENT MEDIATION. Do not use partial/full
+  mediation language and do not compute a proportion mediated.
+  Oddity moves unexpectedness by 2.9688 points, or 1.7539 SD of c_expect.
+  The covariate c_noise: b = 0.2271 (p .008) on c_discom, b = 0.0729 (p .379) on c_expect.
+
+
+==============================================================================
+AGE 61-70   n = 256 rows from 8 participants   [WEAK]
+==============================================================================
+
+  NOTE: 8 participants (< 20). Intervals are wide and the cluster
+  bootstrap is itself imprecise below roughly 30 clusters. Read the
+  point estimates as indicative only.
+
+Design check
+  c_oddity   n(0) =  128   n(1) =  128
+  c_noise    n(0) =  128   n(1) =  128
+  c_expect   M = 2.7891, SD = 1.7697
+  c_discom   M = 1.7070, SD = 0.9762
+  clusters   8 participants; 6,435 distinct cluster resamples
+
+The paths
+------------------------------------------------------------------------------
+Path                                          Effect       SE                 95% CI
+------------------------------------------------------------------------------
+a  - oddity -> unexpectedness                 3.2500    .0870       [3.0786, 3.4214]
+b  - unexpectedness -> discomfort             0.2694    .1314       [0.0107, 0.5282]
+c  - total effect of oddity                   0.4922    .1177       [0.2604, 0.7239]
+c' - direct effect of oddity                 -0.3835    .4561      [-1.2818, 0.5148]
+------------------------------------------------------------------------------
+ab - indirect  (row bootstrap)                0.8757    .3761       [0.1764, 1.6444]
+ab - indirect  (CLUSTER bootstrap)            0.8757    .2654       [0.3954, 1.4668]
+ab - partially standardised (row)             0.8970    .3844       [0.1777, 1.6827]
+------------------------------------------------------------------------------
+SE for a, b, c and c' is the HC4 standard error, which corrects for
+heteroscedasticity but NOT for the 32-trials-per-participant nesting.
+Cluster interval is 0.73x the width of the row interval (1.0714 vs 1.4680).
+
+Inference on the individual paths
+------------------------------------------------------------------------------
+  a   t(253) = 37.3508, p < .001
+  b   t(252) = 2.0506, p .041
+  c   t(253) = 4.1824, p < .001
+  c'  t(252) = -0.8407, p .401
+
+Component models
+------------------------------------------------------------------------------
+
+Mediator model:      c_expect ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.1719    .0762       [1.0218, 1.3220]       -   15.3759    < .001
+c_oddity          3.2500    .0870       [3.0786, 3.4214]     .92   37.3508    < .001
+c_noise          -0.0156    .0870      [-0.1870, 0.1557]    -.00   -0.1796      .858
+------------------------------------------------------------------------------
+R-squared = .8465   F(2, 253) = 722.7167, p < .001   [HC4 Wald]   n = 256
+
+Outcome model:       c_discom ~ c_oddity + c_expect + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.0319    .1873       [0.6630, 1.4008]       -    5.5096    < .001
+c_oddity         -0.3835    .4561      [-1.2818, 0.5148]    -.20   -0.8407      .401
+c_expect          0.2694    .1314       [0.0107, 0.5282]     .49    2.0506      .041
+c_noise           0.2308    .1176      [-0.0008, 0.4623]     .12    1.9629      .051
+------------------------------------------------------------------------------
+R-squared = .1139   F(3, 252) = 8.6404, p < .001   [HC4 Wald]   n = 256
+
+Total effect model:  c_discom ~ c_oddity + c_noise
+------------------------------------------------------------------------------
+Term                   b       SE                 95% CI    beta         t         p
+------------------------------------------------------------------------------
+Constant          1.3477    .0932       [1.1641, 1.5312]       -   14.4627    < .001
+c_oddity          0.4922    .1177       [0.2604, 0.7239]     .25    4.1824    < .001
+c_noise           0.2266    .1177      [-0.0052, 0.4583]     .12    1.9252      .055
+------------------------------------------------------------------------------
+R-squared = .0773   F(2, 253) = 10.0118, p < .001   [HC4 Wald]   n = 256
+
+Reading the result
+------------------------------------------------------------------------------
+  Within age 61-70, H3 is SUPPORTED on the cluster bootstrap.
+  Oddity moves unexpectedness by 3.2500 points, or 1.8365 SD of c_expect.
+  The covariate c_noise: b = 0.2308 (p .051) on c_discom, b = -0.0156 (p .858) on c_expect.
+
+======================================================================================
+SUMMARY 1 - POINT ESTIMATES BY DECADE
+======================================================================================
+
+Decade     rows   ppl         a         b         c        c'        ab   status
+--------------------------------------------------------------------------------------
+11-20        64     2     3.219     0.438     1.312    -0.098     1.410 UNUSABLE
+21-30       576    18     2.562     0.407     0.837    -0.206     1.043     WEAK
+31-40       800    25     2.847     0.408     0.923    -0.239     1.162       OK
+41-50       608    19     2.714     0.454     0.668    -0.564     1.232     WEAK
+51-60       384    12     2.969     0.385     0.620    -0.523     1.142     WEAK
+61-70       256     8     3.250     0.269     0.492    -0.383     0.876     WEAK
+--------------------------------------------------------------------------------------
+
+======================================================================================
+SUMMARY 2 - INDIRECT EFFECT, ROW vs CLUSTER BOOTSTRAP
+======================================================================================
+
+Decade         ab          row-boot CI   width           cluster CI   width
+--------------------------------------------------------------------------------------
+11-20       1.410       [0.539, 2.974]   2.435       [1.253, 2.371]   1.118
+21-30       1.043       [0.843, 1.254]   0.411       [0.798, 1.289]   0.491
+31-40       1.162       [0.967, 1.366]   0.398       [0.917, 1.437]   0.520
+41-50       1.232       [1.028, 1.449]   0.420       [0.953, 1.603]   0.650
+51-60       1.142       [0.832, 1.488]   0.656       [0.689, 1.705]   1.016
+61-70       0.876       [0.176, 1.644]   1.468       [0.395, 1.467]   1.071
+--------------------------------------------------------------------------------------
+Where the two intervals disagree, prefer the cluster interval - unless
+the decade is flagged UNUSABLE, in which case prefer neither.
+Groups were fitted independently; nothing here tests whether age
+moderates any path. That needs PROCESS Model 59 with age as a
+continuous moderator, which also avoids throwing away information by
+binning in the first place.
+
+   decade n_rows n_people   status             path    effect       se
+1   11-20     64        2 UNUSABLE                a  3.218750 0.187884
+2   11-20     64        2 UNUSABLE                b  0.438095 0.358574
+3   11-20     64        2 UNUSABLE                c  1.312500 0.198128
+4   11-20     64        2 UNUSABLE          c_prime -0.097619 1.268647
+5   11-20     64        2 UNUSABLE               ab  1.410119 0.652954
+6   11-20     64        2 UNUSABLE ab_partially_std  1.328887 0.597204
+7   21-30    576       18     WEAK                a  2.562500 0.082822
+8   21-30    576       18     WEAK                b  0.406959 0.038013
+9   21-30    576       18     WEAK                c  0.836806 0.088019
+10  21-30    576       18     WEAK          c_prime -0.206028 0.116803
+11  21-30    576       18     WEAK               ab  1.042833 0.103279
+12  21-30    576       18     WEAK ab_partially_std  0.910399 0.086453
+13  31-40    800       25       OK                a  2.847500 0.067998
+14  31-40    800       25       OK                b  0.407982 0.033226
+15  31-40    800       25       OK                c  0.922500 0.069148
+16  31-40    800       25       OK          c_prime -0.239230 0.108527
+17  31-40    800       25       OK               ab  1.161730 0.101083
+18  31-40    800       25       OK ab_partially_std  1.068995 0.086024
+19  41-50    608       19     WEAK                a  2.713816 0.080951
+20  41-50    608       19     WEAK                b  0.453866 0.035680
+21  41-50    608       19     WEAK                c  0.667763 0.080381
+22  41-50    608       19     WEAK          c_prime -0.563945 0.115509
+23  41-50    608       19     WEAK               ab  1.231708 0.106516
+24  41-50    608       19     WEAK ab_partially_std  1.170442 0.091117
+25  51-60    384       12     WEAK                a  2.968750 0.082795
+26  51-60    384       12     WEAK                b  0.384836 0.053661
+27  51-60    384       12     WEAK                c  0.619792 0.090772
+28  51-60    384       12     WEAK          c_prime -0.522690 0.176377
+29  51-60    384       12     WEAK               ab  1.142482 0.166185
+30  51-60    384       12     WEAK ab_partially_std  1.204635 0.162297
+31  61-70    256        8     WEAK                a  3.250000 0.087013
+32  61-70    256        8     WEAK                b  0.269437 0.131391
+33  61-70    256        8     WEAK                c  0.492188 0.117681
+34  61-70    256        8     WEAK          c_prime -0.383482 0.456139
+35  61-70    256        8     WEAK               ab  0.875669 0.376090
+36  61-70    256        8     WEAK ab_partially_std  0.896980 0.384389
+       ci_lo     ci_hi  clu_lo clu_hi
+1   2.843053  3.594447      NA     NA
+2  -0.279160  1.155350      NA     NA
+3   0.916319  1.708681      NA     NA
+4  -2.635290  2.440052      NA     NA
+5   0.539143  2.974306 1.25317 2.3711
+6   0.539258  2.730054 1.14855 2.3571
+7   2.399829  2.725171      NA     NA
+8   0.332297  0.481622      NA     NA
+9   0.663927  1.009684      NA     NA
+10 -0.435442  0.023387      NA     NA
+11  0.843039  1.253898 0.79761 1.2887
+12  0.742893  1.084448 0.70947 1.1136
+13  2.714023  2.980977      NA     NA
+14  0.342761  0.473204      NA     NA
+15  0.786767  1.058233      NA     NA
+16 -0.452262 -0.026198      NA     NA
+17  0.967465  1.365751 0.91677 1.4370
+18  0.902329  1.240837 0.86523 1.2978
+19  2.554836  2.872796      NA     NA
+20  0.383793  0.523938      NA     NA
+21  0.509903  0.825623      NA     NA
+22 -0.790792 -0.337097      NA     NA
+23  1.028385  1.448588 0.95254 1.6030
+24  0.997525  1.356814 0.91051 1.5323
+25  2.805958  3.131542      NA     NA
+26  0.279326  0.490345      NA     NA
+27  0.441316  0.798268      NA     NA
+28 -0.869488 -0.175892      NA     NA
+29  0.832403  1.487918 0.68936 1.7054
+30  0.899597  1.530498 0.76401 1.8042
+31  3.078638  3.421362      NA     NA
+32  0.010673  0.528201      NA     NA
+33  0.260429  0.723946      NA     NA
+34 -1.281813  0.514850      NA     NA
+35  0.176440  1.644440 0.39538 1.4668
+36  0.177674  1.682744 0.50003 1.4934
+
