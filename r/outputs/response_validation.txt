@@ -1,0 +1,46 @@
+
+PART 1  RESPONSE VALIDITY
+-------------------------
+1a. Straight-lining (within-participant SD of discomfort, 32 trials)
+      identical on all 32 trials (SD = 0) : 0
+      near-identical (SD < 0.35)          : 0
+      min / median / max SD               : 0.464 / 0.991 / 1.328
+
+1b. Per-participant oddity effect (mean discomfort: oddity - normal)
+      positive effect      : 78 of 84
+      zero or negative     : 6
+      median effect        : 0.750
+      non-positive cases   : idx 9 (-0.562), idx 18 (-0.062), idx 38 (-0.062), idx 67 (0.000), idx 72 (-0.062), idx 74 (-0.062)
+
+1c. Midpoint use on unexpectedness ('Indifferent / Can't Decide')
+      80 of 2688 ratings = 2.98%
+
+1d. Completion speed (t_duration from ../data/timer.csv)
+      fastest : idx 72 at 130.65 s (2m 11s, 4.08 s/trial)
+      slowest : idx 34 at 918.92 s (15m 19s)
+      median  : 310.09 s (5m 10s)
+      r(duration, oddity effect) : 0.057
+
+PART 2  ROBUSTNESS PROBE - FASTEST DECILE REMOVED (not a reported analysis)
+---------------------------------------------------------------------------
+Full sample
+      participants 84 | ratings 2688
+      a = 2.8207   b = 0.4120   c' = -0.3906   c = 0.7716
+      ab = 1.1622   95% CI [1.0510, 1.2746]
+
+Dropping fastest 9 participants (idx 72, 23, 43, 5, 68, 39, 15, 65, 50)
+      durations (s): 130.6, 166.0, 172.8, 188.2, 192.4, 209.7, 211.9, 212.9, 220.5
+
+Fastest decile removed
+      participants 75 | ratings 2400
+      a = 2.8425   b = 0.4058   c' = -0.3875   c = 0.7658
+      ab = 1.1534   95% CI [1.0354, 1.2754]
+
+
+CONCLUSION
+----------
+Indirect effect changes from 1.1622 to 1.1534 (-0.76%).
+Both confidence intervals exclude zero: [1.0510, 1.2746] and [1.0354, 1.2754].
+The mediation does not depend on any subset of participants defined by speed.
+Reminder: no participant was excluded on speed grounds. The reported
+analysis uses all 84 participants and all 2,688 ratings.
