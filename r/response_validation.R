@@ -49,8 +49,8 @@
 # Base R only - no packages required.
 # -----------------------------------------------------------------------------
 
-CLEAN  <- "data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv"
-TIMER  <- "data/timer.csv"          # produced by source/timer.py
+CLEAN  <- "../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv"
+TIMER  <- "../data/timer.csv"          # produced by source/timer.py
 BOOT_N <- 10000
 SEED   <- 20260727
 DECILE <- 0.10
