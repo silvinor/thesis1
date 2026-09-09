@@ -121,7 +121,7 @@ TINY_PARTICIPANTS <- 5    # below this, results are flagged uninterpretable
 # --- Locate the data file --------------------------------------------------
 
 find_data <- function() {
-  stem <- "data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv"
+  stem <- "../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv"
   candidates <- c(stem, file.path("..", stem))
   hit <- candidates[file.exists(candidates)]
   if (length(hit) == 0L) {

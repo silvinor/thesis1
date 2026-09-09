@@ -56,7 +56,7 @@ COV_VAR <- "c_noise"   # covariate  - background activity (0 = low, 1 = high)
 # Works whether the script is run from the project root or from source/.
 
 find_data <- function() {
-  stem <- "data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv"
+  stem <- "../data/data_ODDITY_exp_274266-v20_task-8m3r.clean.csv"
   candidates <- c(stem, file.path("..", stem))
   hit <- candidates[file.exists(candidates)]
   if (length(hit) == 0L) {
