@@ -31,11 +31,24 @@
         .thick { stroke-width: 2; }
         .thin { stroke-width: 0.75; }
         .dashed { stroke-dasharray: 8 8; }
+
+        .s1 { stroke: #817; } .f1 { fill: #817; }
+        .s2 { stroke: #a35; } .f2 { fill: #a35; }
+        .s3 { stroke: #c66; } .f3 { fill: #c66; }
+        .s4 { stroke: #e94; } .f4 { fill: #e94; }
+        .s5 { stroke: #ed0; } .f5 { fill: #ed0; }
+        .s6 { stroke: #9d5; } .f6 { fill: #9d5; }
+        .s7 { stroke: #4d8; } .f7 { fill: #4d8; }
+        .s8 { stroke: #2cb; } .f8 { fill: #2cb; }
+        .s9 { stroke: #0bc; } .f9 { fill: #0bc; }
+        .sA { stroke: #09c; } .fA { fill: #09c; }
+        .sB { stroke: #36b; } .fB { fill: #36b; }
+        .sC { stroke: #639; } .fC { fill: #639; }
     </style>
     <defs>
         <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
                 markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <polygon points="0,0 10,5 0,10" stroke="none" />
+            <polygon points="0,0 10,5 0,10" style="fill: context-fill; stroke: context-stroke" />
         </marker>
     </defs>
 
@@ -51,14 +64,14 @@
     <!-- Lines -->
     <g class="thick">
         <!-- <line x1="141" y1="186" x2="262" y2="76" opacity=".05" /> -->
-        <line x1="141" y1="186" x2="189.4" y2="142" />
-        <line x1="233.4" y1="102" x2="262" y2="76" marker-end="url(#arrow)" />
+        <line x1="141" y1="186" x2="189.4" y2="142" class="s8 f8" />
+        <line x1="233.4" y1="102" x2="262" y2="76" marker-end="url(#arrow)" class="s8 f8" />
         <!-- <polygon points="262,76 258,86 251,79" /> -->
         <!-- <line x1="418" y1="76" x2="536" y2="186" opacity=".05" /> -->
-        <line x1="418" y1="76" x2="445.9" y2="102" />
-        <line x1="488.8" y1="142" x2="536" y2="186" marker-end="url(#arrow)" />
+        <line x1="418" y1="76" x2="445.9" y2="102" class="s8 f8" />
+        <line x1="488.8" y1="142" x2="536" y2="186" marker-end="url(#arrow)" class="s8 f8" />
         <!-- <polygon points="536,186 525,182 531,175" /> -->
-        <line x1="178" y1="220" x2="498" y2="220" class="dashed" marker-end="url(#arrow)" />
+        <line x1="178" y1="220" x2="498" y2="220" marker-end="url(#arrow)" class="dashed s3 f3" />
         <!-- <polygon points="498,220 488,216 488,224" /> -->
     </g>
 
@@ -72,19 +85,19 @@
         <text x="580" y="232" class="center small"> higher = more discomfort </text>
 
         <!-- Arrow text -->
-        <text x="211" y="118" class="center bold"><tspan class="italic">a</tspan>: <tspan class="italic">B</tspan> = +2.821, <tspan class="italic">p</tspan> &lt; .001 </text>
-        <text x="211" y="136" class="center italic small">more unexpected</text>
-        <text x="467" y="118" class="center bold"><tspan class="italic">b</tspan>: <tspan class="italic">B</tspan> = +0.412, <tspan class="italic">p</tspan> &lt; .001 </text>
-        <text x="467" y="136" class="center italic small">more discomfort</text>
-        <text x="337" y="210" class="center bold"><tspan class="italic">c'</tspan>: <tspan class="italic">B</tspan> = &#8722;0.391, <tspan class="italic">p</tspan> &lt; .001 </text>
-        <text x="337" y="236" class="center small"> controlling for perceived unexpectedness </text>
-        <text x="337" y="250" class="center small italic"> less discomfort </text>
+        <text x="211" y="118" class="center bold f8"><tspan class="italic">a</tspan>: <tspan class="italic">B</tspan> = +2.821, <tspan class="italic">p</tspan> &lt; .001 </text>
+        <text x="211" y="136" class="center italic small f8">more unexpected</text>
+        <text x="467" y="118" class="center bold f8"><tspan class="italic">b</tspan>: <tspan class="italic">B</tspan> = +0.412, <tspan class="italic">p</tspan> &lt; .001 </text>
+        <text x="467" y="136" class="center italic small f8">more discomfort</text>
+        <text x="337" y="210" class="center bold f3"><tspan class="italic">c'</tspan>: <tspan class="italic">B</tspan> = &#8722;0.391, <tspan class="italic">p</tspan> &lt; .001 </text>
+        <text x="337" y="236" class="center small f3"> controlling for perceived unexpectedness </text>
+        <text x="337" y="250" class="center small italic f3"> less discomfort </text>
     </g>
 
     <!-- Descriptives -->
     <g opacity=".75">
         <line x1="90" y1="275" x2="584" y2="275" class="thin" />
-        <text x="337" y="300" class="center">
+        <text x="337" y="300" class="center f8">
             <tspan> indirect </tspan>
             <tspan class="bold"> (<tspan class="italic">a&#x00D7;b</tspan>) = +1.162 </tspan>
             <tspan> + direct </tspan>

@@ -31,11 +31,24 @@
         .thick { stroke-width: 2; }
         .thin { stroke-width: 0.75; }
         .dashed { stroke-dasharray: 8 8; }
+
+        .s1 { stroke: #817; } .f1 { fill: #817; }
+        .s2 { stroke: #a35; } .f2 { fill: #a35; }
+        .s3 { stroke: #c66; } .f3 { fill: #c66; }
+        .s4 { stroke: #e94; } .f4 { fill: #e94; }
+        .s5 { stroke: #ed0; } .f5 { fill: #ed0; }
+        .s6 { stroke: #9d5; } .f6 { fill: #9d5; }
+        .s7 { stroke: #4d8; } .f7 { fill: #4d8; }
+        .s8 { stroke: #2cb; } .f8 { fill: #2cb; }
+        .s9 { stroke: #0bc; } .f9 { fill: #0bc; }
+        .sA { stroke: #09c; } .fA { fill: #09c; }
+        .sB { stroke: #36b; } .fB { fill: #36b; }
+        .sC { stroke: #639; } .fC { fill: #639; }
     </style>
     <defs>
         <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
                 markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <polygon points="0,0 10,5 0,10" stroke="none" />
+            <polygon points="0,0 10,5 0,10" style="fill: context-fill; stroke: context-stroke" />
         </marker>
     </defs>
 
@@ -62,20 +75,20 @@
     <text class="center small" x="687" y="194">Five-point scale</text>
 
     <!-- Stimulus to external -->
-    <line class="thick" x1="195" y1="106" x2="285" y2="54" marker-end="url(#arrow)" />
+    <line class="thick s9 f9" x1="195" y1="106" x2="285" y2="54" marker-end="url(#arrow)" />
 
     <!-- Stimulus to internal (direct path) -->
-    <line class="thick dashed" x1="195" y1="124" x2="285" y2="176" marker-end="url(#arrow)" />
+    <line class="thick dashed s4 f4" x1="195" y1="124" x2="285" y2="176" marker-end="url(#arrow)" />
 
     <!-- External to internal -->
-    <line class="thick" x1="388" y1="85" x2="388" y2="142" marker-end="url(#arrow)" />
+    <line class="thick s9 f9" x1="388" y1="85" x2="388" y2="142" marker-end="url(#arrow)" />
 
     <!-- Internal to outcome -->
-    <line class="thick" x1="491" y1="178" x2="581" y2="178" marker-end="url(#arrow)" />
+    <line class="thick s4 f4" x1="491" y1="178" x2="581" y2="178" marker-end="url(#arrow)" />
 
     <text class="small center" x="232" y="44">reads as</text>
     <text class="small center" x="232" y="58">incongruent</text>
-    <text class="small center" x="466" y="118">shapes</text>
-    <text class="small center" x="222" y="198">direct affective</text>
-    <text class="small center" x="222" y="212">route</text>
+    <text class="small center" x="414" y="118">shapes</text>
+    <text class="small center" x="222" y="178">direct affective</text>
+    <text class="small center" x="222" y="192">route</text>
 </svg>
